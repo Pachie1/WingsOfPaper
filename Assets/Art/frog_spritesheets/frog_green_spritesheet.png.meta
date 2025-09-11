@@ -609,7 +609,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frog_green_spritesheet_0: -5550135587650637582
+      frog_green_spritesheet_1: 4390173141129671810
+      frog_green_spritesheet_10: 407788656553355807
+      frog_green_spritesheet_11: 8141855931255321795
+      frog_green_spritesheet_12: -2148681760214767910
+      frog_green_spritesheet_13: 2132786607625386923
+      frog_green_spritesheet_14: 803532743686350487
+      frog_green_spritesheet_15: -728970171510688358
+      frog_green_spritesheet_16: 658382678526281798
+      frog_green_spritesheet_17: -5840030640468650282
+      frog_green_spritesheet_18: 8223303761836011439
+      frog_green_spritesheet_19: 1950858636608880175
+      frog_green_spritesheet_2: 7367102871889257207
+      frog_green_spritesheet_3: 8035839163526101364
+      frog_green_spritesheet_4: 3603545998855627694
+      frog_green_spritesheet_5: 2614870161370343353
+      frog_green_spritesheet_6: -8211973637508583804
+      frog_green_spritesheet_7: 4158893352569496368
+      frog_green_spritesheet_8: 3810409151907947383
+      frog_green_spritesheet_9: 7733165376306354679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

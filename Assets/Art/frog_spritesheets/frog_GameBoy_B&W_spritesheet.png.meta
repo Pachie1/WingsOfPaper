@@ -609,7 +609,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frog_GameBoy_B&W_spritesheet_0: 8990222642078034527
+      frog_GameBoy_B&W_spritesheet_1: -1311937858048670413
+      frog_GameBoy_B&W_spritesheet_10: 5736085014560584529
+      frog_GameBoy_B&W_spritesheet_11: 1919072976012777847
+      frog_GameBoy_B&W_spritesheet_12: 9175463798590673928
+      frog_GameBoy_B&W_spritesheet_13: 300334021804431446
+      frog_GameBoy_B&W_spritesheet_14: 6102641071184281330
+      frog_GameBoy_B&W_spritesheet_15: -1597496969654431406
+      frog_GameBoy_B&W_spritesheet_16: -6986318190339068574
+      frog_GameBoy_B&W_spritesheet_17: 7219631537683969676
+      frog_GameBoy_B&W_spritesheet_18: 7824463605857319222
+      frog_GameBoy_B&W_spritesheet_19: 736087756316479730
+      frog_GameBoy_B&W_spritesheet_2: 3137559131258292736
+      frog_GameBoy_B&W_spritesheet_3: -1218757590968189935
+      frog_GameBoy_B&W_spritesheet_4: 275267925381027989
+      frog_GameBoy_B&W_spritesheet_5: -6323395454552623406
+      frog_GameBoy_B&W_spritesheet_6: -2656197702725911454
+      frog_GameBoy_B&W_spritesheet_7: 2263175036421027480
+      frog_GameBoy_B&W_spritesheet_8: 3166555518335928744
+      frog_GameBoy_B&W_spritesheet_9: 7869930814552528730
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -609,7 +609,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frog_GameBoy_Green_spritesheet_0: 1738049275925560537
+      frog_GameBoy_Green_spritesheet_1: -4288602174869940014
+      frog_GameBoy_Green_spritesheet_10: 4422054646355410730
+      frog_GameBoy_Green_spritesheet_11: 5361642224405326408
+      frog_GameBoy_Green_spritesheet_12: 148548606609994640
+      frog_GameBoy_Green_spritesheet_13: 3268587038803547742
+      frog_GameBoy_Green_spritesheet_14: -3190391136637790737
+      frog_GameBoy_Green_spritesheet_15: 6670514141501046328
+      frog_GameBoy_Green_spritesheet_16: -6317240054010979676
+      frog_GameBoy_Green_spritesheet_17: -7377273459290574941
+      frog_GameBoy_Green_spritesheet_18: -8504838059356155246
+      frog_GameBoy_Green_spritesheet_19: 1070947457917622882
+      frog_GameBoy_Green_spritesheet_2: 342629619812225996
+      frog_GameBoy_Green_spritesheet_3: -5405874657538313656
+      frog_GameBoy_Green_spritesheet_4: -9148432501684910245
+      frog_GameBoy_Green_spritesheet_5: 6641795359618083633
+      frog_GameBoy_Green_spritesheet_6: 1902879172224908472
+      frog_GameBoy_Green_spritesheet_7: 1058174401115188603
+      frog_GameBoy_Green_spritesheet_8: -2846790704696926217
+      frog_GameBoy_Green_spritesheet_9: 3569654753979346544
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
