@@ -3,7 +3,15 @@ using UnityEngine;
 
 public class EnemyCollis : MonoBehaviour
 {
-    [SerializeField] public float HitPoints = 4f; 
+    private Animator animator;
+
+    [SerializeField] public float HitPoints = 4f;
+
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Projectile"))
@@ -21,8 +29,8 @@ public class EnemyCollis : MonoBehaviour
 
     private void takeDamage(float x)
     {
+        animator.SetTrigger("OnHit");
         HitPoints -= x;
-
         if (HitPoints <= 0)
         {
             Die();
@@ -31,6 +39,11 @@ public class EnemyCollis : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        animator.SetTrigger("Dead");
+        transform.Rotate(0f, 0f, 180f * Time.deltaTime * 20, Space.Self);
+    }
+    private void OnDeadAnimation() 
+    {
+        Destroy(gameObject,1f);
     }
 }
