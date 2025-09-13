@@ -40,7 +40,8 @@ public class EnemyCollis : MonoBehaviour
     private void Die()
     {
         animator.SetTrigger("Dead");
-        transform.Rotate(0f, 0f, 180f * Time.deltaTime * 20, Space.Self);
+        //GetComponent<Collider>().enabled = false;
+        transform.Rotate(0f, 0f, 180f * Time.deltaTime * 80, Space.Self);
     }
     private void OnDeadAnimation() 
     {
