@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Debug.Log("Me fui");
         Destroy(gameObject);
     }
 }
