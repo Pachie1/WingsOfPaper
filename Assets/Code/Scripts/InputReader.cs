@@ -13,12 +13,7 @@ public class InputReader : MonoBehaviour
     [SerializeField] GameObject FirePoint;
 
     [Header("Player Settings")]
-<<<<<<< Updated upstream:Assets/Scripts/InputReader.cs
     [SerializeField] float speed;
-    [SerializeField] float rotationSpeed;
-=======
-    [SerializeField] float speed = 4;
->>>>>>> Stashed changes:Assets/Code/Scripts/InputReader.cs
 
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference attackAction;
@@ -37,11 +32,7 @@ public class InputReader : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-<<<<<<< Updated upstream:Assets/Scripts/InputReader.cs
-        speed = 10; 
-        rotationSpeed= 720f;
-=======
->>>>>>> Stashed changes:Assets/Code/Scripts/InputReader.cs
+        speed = 6;
         animator = GetComponent<Animator>();
 
         moveAction.action.started += HandleMoveInput;
@@ -79,33 +70,16 @@ public class InputReader : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        //RotateInDirectionOfInput(); 
-    }
-
-    private void RotateInDirectionOfInput() 
-    {
-        if (move != Vector2.zero) 
-        { 
-            Quaternion targetRotation = Quaternion.LookRotation(transform.forward,move);
-            Quaternion rotation= Quaternion.RotateTowards(transform.rotation,targetRotation,rotationSpeed * Time.deltaTime);
-
-            rb.MoveRotation(rotation);
-        }
-    
-    }
-
     private void Fire()
     {
         if (pfBullet)
         {
             GameObject instance = Instantiate(pfBullet, FirePoint.transform.position, FirePoint.transform.rotation);
-            //Destroy(instance, bulletLife);
+            Destroy(instance, bulletLife);
         }
         else 
         {
-            Debug.LogError("Asignaaaa la bullet");
+            Debug.LogError("Asigna la bullet");
         }
     }
 }

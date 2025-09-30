@@ -30,10 +30,4 @@ public class Bullet : MonoBehaviour
 
         return new Vector2 (x+spawnPoint.x, y+spawnPoint.y);
     }
-
-    void OnBecameInvisible()
-    {
-        Debug.Log("Me fui");
-        Destroy(gameObject);
-    }
 }
