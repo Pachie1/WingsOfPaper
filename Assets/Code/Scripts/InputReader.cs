@@ -46,12 +46,6 @@ public class InputReader : MonoBehaviour
         Debug.Log(moveInput);
         move = new Vector2(0f,0f);
         move += moveInput * speed;
-
-        if (moveInput != Vector2.zero)
-        {
-            animator.SetFloat("XInput", move.x);
-            animator.SetFloat("YInput", move.y);
-        }
     }
 
     // Update is called once per frame

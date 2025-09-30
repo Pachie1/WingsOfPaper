@@ -14,6 +14,7 @@ public class EnemyCollis : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("tag: " + UnityEditorInternal.InternalEditorUtility.tags[tag]);
         if (other.CompareTag(UnityEditorInternal.InternalEditorUtility.tags[tag]))
         {
             Destroy(other.gameObject);

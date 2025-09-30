@@ -1,7 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< Updated upstream
-=======
 --- !u!1102 &-7331032701380705479
 AnimatorState:
   serializedVersion: 6
@@ -54,7 +52,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
->>>>>>> Stashed changes
 --- !u!1107 &-3264708888405681442
 AnimatorStateMachine:
   serializedVersion: 6
@@ -63,9 +60,6 @@ AnimatorStateMachine:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Base Layer
-<<<<<<< Updated upstream
-  m_ChildStates: []
-=======
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7331032701380705479}
@@ -73,7 +67,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -1453600576412747221}
     m_Position: {x: 250, y: 40, z: 0}
->>>>>>> Stashed changes
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -83,9 +76,6 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-<<<<<<< Updated upstream
-  m_DefaultState: {fileID: 0}
-=======
   m_DefaultState: {fileID: -7331032701380705479}
 --- !u!1102 &-1453600576412747221
 AnimatorState:
@@ -113,7 +103,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
->>>>>>> Stashed changes
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
