@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e207972654d63488d467c6951023bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: 7
+  Enemytag: Projectile
   HitPoints: 4
 --- !u!114 &5240163596759487753
 MonoBehaviour:
@@ -153,7 +153,7 @@ MonoBehaviour:
   bulletLife: 1
   speed: 1
   spawnerType: 1
-  firingRate: 1
+  firingRate: 2
   FirePoint: {fileID: 3506018208982104683}
 --- !u!61 &2782688718095083263
 BoxCollider2D:

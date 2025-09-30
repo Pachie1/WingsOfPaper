@@ -440,8 +440,8 @@ Canvas:
   m_GameObject: {fileID: 127849825}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -452,7 +452,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &127849830
 RectTransform:
@@ -586,6 +586,10 @@ PrefabInstance:
     - target: {fileID: 1965177265271612368, guid: 4c859a098bf6f1248afbdb1510e591e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414071158055512126, guid: 4c859a098bf6f1248afbdb1510e591e3, type: 3}
+      propertyPath: Enemytag
+      value: EnemyProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 6929356461615282594, guid: 4c859a098bf6f1248afbdb1510e591e3, type: 3}
       propertyPath: m_Name
@@ -2458,8 +2462,8 @@ Canvas:
   m_GameObject: {fileID: 2123731635}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2470,7 +2474,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2123731640
 RectTransform:
