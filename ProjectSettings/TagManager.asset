@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - Projectile
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -39,15 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Ocean
-    uniqueID: 3551975923
-    locked: 0
-  - name: Ground
-    uniqueID: 553611891
-    locked: 0
-  - name: Buildings
-    uniqueID: 249420571
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -30,4 +30,9 @@ public class Bullet : MonoBehaviour
 
         return new Vector2 (x+spawnPoint.x, y+spawnPoint.y);
     }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

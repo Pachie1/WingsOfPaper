@@ -1,4 +1,3 @@
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +12,7 @@ public class InputReader : MonoBehaviour
     [SerializeField] GameObject FirePoint;
 
     [Header("Player Settings")]
-    [SerializeField] float speed;
+    [SerializeField] float speed = 6;
 
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference attackAction;
@@ -32,7 +31,6 @@ public class InputReader : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        speed = 6;
         animator = GetComponent<Animator>();
 
         moveAction.action.started += HandleMoveInput;
@@ -43,15 +41,8 @@ public class InputReader : MonoBehaviour
     private void HandleMoveInput(InputAction.CallbackContext context)
     {
         var moveInput = context.ReadValue<Vector2>();
-        Debug.Log(moveInput);
         move = new Vector2(0f,0f);
         move += moveInput * speed;
-
-        if (moveInput != Vector2.zero)
-        {
-            animator.SetFloat("XInput", move.x);
-            animator.SetFloat("YInput", move.y);
-        }
     }
 
     // Update is called once per frame
@@ -75,7 +66,6 @@ public class InputReader : MonoBehaviour
         if (pfBullet)
         {
             GameObject instance = Instantiate(pfBullet, FirePoint.transform.position, FirePoint.transform.rotation);
-            Destroy(instance, bulletLife);
         }
         else 
         {

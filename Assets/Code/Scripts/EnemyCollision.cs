@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 
 public class EnemyCollis : MonoBehaviour
 {
     private Animator animator;
-
+    [SerializeField] public string Enemytag;
     [SerializeField] public float HitPoints = 4f;
 
 
@@ -14,7 +13,7 @@ public class EnemyCollis : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag(Enemytag))
         {
             Destroy(other.gameObject);
             Bullet bullet = other.GetComponent<Bullet>();
