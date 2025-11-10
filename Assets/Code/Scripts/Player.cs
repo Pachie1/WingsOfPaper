@@ -1,18 +1,11 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class EnemyCollis : MonoBehaviour
+public class Player : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] public string Enemytag;
     [SerializeField] public float HitPoints = 4f;
-
-    private IObjectPool<EnemyCollis> enemyPool;
-
-    public void SetPool(IObjectPool<EnemyCollis> pool)
-    {
-        enemyPool = pool;
-    }
 
     private void Start()
     {
@@ -24,17 +17,17 @@ public class EnemyCollis : MonoBehaviour
         {
             Destroy(other.gameObject);
             Bullet bullet = other.GetComponent<Bullet>();
-            if (bullet) 
+            if (bullet)
             {
                 takeDamage(bullet.damage);
             }
-            
+
         }
     }
 
     private void takeDamage(float x)
     {
-        animator.SetTrigger("OnHit");
+        animator.SetTrigger("OnHit"); 
         HitPoints -= x;
         if (HitPoints <= 0)
         {
@@ -45,12 +38,11 @@ public class EnemyCollis : MonoBehaviour
     private void Die()
     {
         animator.SetTrigger("Dead");
-        
-        //Destroy(GetComponent<BoxCollider2D>());
+
+        Destroy(GetComponent<BoxCollider2D>());
     }
-    private void OnDeadAnimation() 
+    private void OnDeadAnimation()
     {
-        //Destroy(gameObject,0f);
-        enemyPool.Release(this);
+        Destroy(gameObject,0f);
     }
 }

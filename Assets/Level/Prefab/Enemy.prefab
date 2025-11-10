@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2735446702077457482}
   - component: {fileID: 3844612011425635074}
-  - component: {fileID: 3443699348118302360}
   - component: {fileID: 5240163596759487753}
+  - component: {fileID: -4836637402779623067}
   - component: {fileID: 3352494797381757099}
   - component: {fileID: 2782688718095083263}
   - component: {fileID: -3489213921123986356}
@@ -124,20 +124,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3443699348118302360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6967292351236834629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85e207972654d63488d467c6951023bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemytag: Projectile
-  HitPoints: 4
 --- !u!114 &5240163596759487753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +142,20 @@ MonoBehaviour:
   spawnerType: 1
   firingRate: 2
   FirePoint: {fileID: 3506018208982104683}
+--- !u!114 &-4836637402779623067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967292351236834629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c82d6d3e4165e64680516fa128551b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemytag: Projectile
+  HitPoints: 4
 --- !u!114 &3352494797381757099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,8 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a4f6bfa4aae2842b394546f2332037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
-  targerPoint: 0
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  targetPoint: 0
   speed: 3
 --- !u!61 &2782688718095083263
 BoxCollider2D:
