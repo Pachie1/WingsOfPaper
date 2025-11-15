@@ -101,9 +101,9 @@ GameObject:
   - component: {fileID: -571274188018964324}
   - component: {fileID: -3039149392025796132}
   - component: {fileID: 5755321854267150439}
-  - component: {fileID: 8127728199590454474}
-  - component: {fileID: -7221077226503977528}
   - component: {fileID: -3530542103482245617}
+  - component: {fileID: -7221077226503977528}
+  - component: {fileID: 8127728199590454474}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -311,6 +311,33 @@ MonoBehaviour:
   pfBullet: {fileID: 4798221406015080201, guid: e439f348e25bcb447b7cc36aae8cf510, type: 3}
   firingRate: 0.2
   bulletLife: 1
+--- !u!114 &-3530542103482245617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929356461615282594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9c4e162cdb30c458144926b1c7d7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemytag: EnemyProjectile
+  HitPoints: 4
+--- !u!114 &-7221077226503977528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6929356461615282594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8f72a9855d4e0409100bf38c467057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gcamera: {fileID: 0}
 --- !u!95 &8127728199590454474
 Animator:
   serializedVersion: 7
@@ -333,30 +360,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7221077226503977528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6929356461615282594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8f72a9855d4e0409100bf38c467057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gcamera: {fileID: 0}
---- !u!114 &-3530542103482245617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6929356461615282594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9c4e162cdb30c458144926b1c7d7a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemytag: 
-  HitPoints: 4

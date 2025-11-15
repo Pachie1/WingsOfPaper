@@ -1,51 +1,28 @@
-using System;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class EnemySpawner : MonoBehaviour
 {
+    
+    public GameObject prefab;
+    private EnemyPatrol patrol;
+    private ObjectPool enemyPool;
 
-    [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float timeBetweenSpawns;
-    private float timeSinceLastSpawn;
-
-
-    [SerializeField] private Enemy enemyPrefab;
-    private IObjectPool<Enemy> enemyPool;
-
-
-    private void Awake()
+    public void Spawn(Transform[] patrolPointsWave1)
     {
-        enemyPool = new ObjectPool<Enemy>(CreateEnenmy);
+        Debug.Log("EnemySpawner: Spaw()");
+        
+        patrol = prefab.GetComponent<EnemyPatrol>();
+
+        patrol.patrolPoints = patrolPointsWave1;
+
+        prefab.transform.position = transform.position;
+        prefab.transform.rotation = transform.rotation;
+
+        Instantiate(prefab);
     }
 
-    private void GetObject(Enemy enemy)
+    public void DeactivateEnenmy(GameObject enemy)
     {
-        enemy.gameObject.SetActive(true);
-
-        Transform spawnPoint = spawnPoints[0];
-        enemy.transform.position = spawnPoint.position;
-    }
-
-    private void ReleaseObject(Enemy enemy)
-    {
-        enemy.gameObject.SetActive(false);
-    }
-
-    private Enemy CreateEnenmy()
-    {
-        Enemy enemy = Instantiate(enemyPrefab);
-        enemy.SetPool(enemyPool);
-        return enemy;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.time > timeSinceLastSpawn)
-        {
-            enemyPool.Get();
-            timeSinceLastSpawn = Time.time + timeSinceLastSpawn;
-        }
+        enemyPool.ReturnObject(enemy);
     }
 }

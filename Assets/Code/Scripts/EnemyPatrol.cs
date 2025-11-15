@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    public GameObject[] patrolPoints;
+    public Transform[] patrolPoints;
     public int targetPoint;
     public float speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,25 +14,19 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("targetPoint: "+ targetPoint);
-        Debug.Log("targetPointX: " + patrolPoints[targetPoint].transform.position.x);
-        Debug.Log("targetPointY: " + patrolPoints[targetPoint].transform.position.y);
-        Debug.Log("targetPointZ: " + patrolPoints[targetPoint].transform.position.z);
-
-        Debug.Log("transform X: " + transform.position.x); 
-        Debug.Log("transform Y: " + transform.position.y);
-        Debug.Log("transform Z: " + transform.position.z);
-        if (transform.position == patrolPoints[targetPoint].transform.position)
+        if (Mathf.Approximately(Vector3.Distance(transform.position, patrolPoints[targetPoint].position), 0))
         {
-            //increaseTargetInt();
+            increaseTargetInt();
         }
-        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].transform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, patrolPoints[targetPoint].position, speed * Time.deltaTime);
     }
 
     void increaseTargetInt() 
     {
         targetPoint++;
 
+        Debug.Log("patrolPoints.Length: " + patrolPoints.Length);
+        Debug.Log("targetPoint: " + targetPoint);
         if (patrolPoints.Length <= targetPoint)
         {
             targetPoint = 0;

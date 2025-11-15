@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour
 {
@@ -7,13 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public string Enemytag;
     [SerializeField] public float HitPoints = 4f;
 
-    private IObjectPool<Enemy> enemyPool;
 
-    public void SetPool(IObjectPool<Enemy> pool)
-    {
-        enemyPool = pool;
-    }
-     
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -45,12 +38,10 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         animator.SetTrigger("Dead");
-
-        //Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<BoxCollider2D>());
     }
     private void OnDeadAnimation()
     {
-        //Destroy(gameObject,0f);
-        enemyPool.Release(this);
+        Destroy(gameObject, 0f);
     }
 }
