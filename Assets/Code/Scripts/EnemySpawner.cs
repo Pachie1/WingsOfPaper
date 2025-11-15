@@ -9,8 +9,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void Spawn(Transform[] patrolPointsWave1)
     {
-        Debug.Log("EnemySpawner: Spaw()");
-        
         patrol = prefab.GetComponent<EnemyPatrol>();
 
         patrol.patrolPoints = patrolPointsWave1;

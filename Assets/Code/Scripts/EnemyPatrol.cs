@@ -24,9 +24,6 @@ public class EnemyPatrol : MonoBehaviour
     void increaseTargetInt() 
     {
         targetPoint++;
-
-        Debug.Log("patrolPoints.Length: " + patrolPoints.Length);
-        Debug.Log("targetPoint: " + targetPoint);
         if (patrolPoints.Length <= targetPoint)
         {
             targetPoint = 0;

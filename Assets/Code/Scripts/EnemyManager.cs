@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-
-    [SerializeField] int initialWave;
-    [SerializeField] EnemySpawner enemySpawner1;
-    [SerializeField] EnemySpawner enemySpawner2;
-    [SerializeField] EnemySpawner enemySpawner3;
+    [SerializeField] public int initialWave;
+    [SerializeField] public EnemySpawner enemySpawner1;
+    [SerializeField] public EnemySpawner enemySpawner2;
+    [SerializeField] public EnemySpawner enemySpawner3;
 
     [Header("Wave1")]
     public Transform[] patrolPoints1_Wave1;
@@ -49,19 +48,19 @@ public class EnemyManager : MonoBehaviour
     public Transform[] patrolPoints3_Wave10;
 
     private GameObject enemyStillAlive;
-
+    private StartGame canva;
+    
+    private int enemysLeft = 0;
     private int enemysSpawned = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("initialWave: " + initialWave);
         Waves(initialWave);
     }
 
     void Waves(int initialWave)
     {
         enemysSpawned = 1;
-        Debug.Log("Waves - initialWave: " + initialWave);
         switch (initialWave)
         {
             case 1:
@@ -225,14 +224,46 @@ public class EnemyManager : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+
+    public void enemyHasDied()
     {
-        //Check if there are enemys still alive
-        /*enemyStillAlive = GameObject.FindGameObjectWithTag("Enemy");
-        if (!enemyStillAlive)
+        enemysLeft--;
+        Debug.Log("enemysLeft: " + enemysLeft);
+        if (enemysLeft == 0)
         {
             initialWave++;
-            Waves(initialWave); 
+            Waves(initialWave);
+            enemyStillAlive = null;
+        }
+    }
+
+    public void enemyHasSpawned()
+    {
+        enemysLeft++;
+        Debug.Log("enemysLeft: " + enemysLeft);
+    }
+
+    void Update()
+    {
+        /*canva = GetComponent<StartGame>();
+        if (canva)
+        {
+            Debug.Log("gameStarted: " + canva.gameStarted);
+            if (canva.gameStarted)
+            {
+                //Check if there are enemys still alive
+                //enemyStillAlive = ;
+                //if (enemyStillAlive) { Debug.Log("enemyStillAlive: " + canva.gameStarted);  }
+
+                Debug.Log("areAllEnemiesDead: " + areAllEnemiesDead);
+                if (areAllEnemiesDead) 
+                {
+                    initialWave++;
+                    Waves(initialWave);
+                    enemyStillAlive = null;
+                }
+            }
         }*/
+        
     }
 }
