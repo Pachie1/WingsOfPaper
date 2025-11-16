@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -49,89 +49,43 @@ public class EnemyManager : MonoBehaviour
 
     private GameObject enemyStillAlive;
     private StartGame canva;
-    
+
+
+    [SerializeField] private float spawnDelay = 0.5f;   
+    [SerializeField] private int spawnsPerWave = 3; 
+
+    private int currentWave;
+    private int spawnsDoneInCurrentWave = 0;
+    private float nextSpawnTime = 0f;
+
     private int enemysLeft = 0;
-    private int enemysSpawned = 1;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Waves(initialWave);
+        enemysLeft = 0;
+        currentWave = initialWave;
+        SetupWave(currentWave);
     }
 
-    void Waves(int initialWave)
-    {
-        enemysSpawned = 1;
-        switch (initialWave)
-        {
-            case 1:
-                StartCoroutine(LoadWave1());
-                break;
-            case 2:
-                StartCoroutine(LoadWave2());
-                break;
-            case 3:
-                StartCoroutine(LoadWave3());
-                break;
-            case 4:
-                StartCoroutine(LoadWave4());
-                break;
-            case 5:
-                StartCoroutine(LoadWave5());
-                break;
-            case 6:
-                StartCoroutine(LoadWave6());
-                break;
-            case 7:
-                StartCoroutine(LoadWave7());
-                break;
-            case 8:
-                StartCoroutine(LoadWave8());
-                break;
-            case 9:
-                StartCoroutine(LoadWave9());
-                break;
-            case 10:
-                StartCoroutine(LoadWave10());
-                break;
-        }
-    }
-    IEnumerator LoadWave1()
-    {
-        yield return new WaitForSeconds(0.5f);
+   
+    void LoadWave1()
+    { 
         enemySpawner1.Spawn(patrolPoints1_Wave1);
-        if (enemysSpawned < 3) 
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave1());
-        }
-        
     }
 
-    IEnumerator LoadWave2()
+    void LoadWave2()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave2);
         enemySpawner2.Spawn(patrolPoints2_Wave2);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave2());
-        }
-
     }
 
-    IEnumerator LoadWave3()
+    void LoadWave3()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave3);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave3());
-        }
-
     }
-
+    /*
     IEnumerator LoadWave4()
     {
         yield return new WaitForSeconds(0.5f);
@@ -222,48 +176,69 @@ public class EnemyManager : MonoBehaviour
             StartCoroutine(LoadWave10());
         }
 
-    }
+    }*/
     // Update is called once per frame
 
     public void enemyHasDied()
     {
         enemysLeft--;
-        Debug.Log("enemysLeft: " + enemysLeft);
-        if (enemysLeft == 0)
+        Debug.Log("enemyHasDied - enemysLeft: " + enemysLeft); 
+        if (enemysLeft == 0) 
         {
             initialWave++;
-            Waves(initialWave);
-            enemyStillAlive = null;
+
+            currentWave++;
+            initialWave = currentWave; 
+            SetupWave(currentWave);
         }
     }
 
     public void enemyHasSpawned()
     {
         enemysLeft++;
-        Debug.Log("enemysLeft: " + enemysLeft);
+        Debug.Log("enemyHasSpawned - enemysLeft: " + enemysLeft);
     }
 
     void Update()
     {
-        /*canva = GetComponent<StartGame>();
-        if (canva)
-        {
-            Debug.Log("gameStarted: " + canva.gameStarted);
-            if (canva.gameStarted)
-            {
-                //Check if there are enemys still alive
-                //enemyStillAlive = ;
-                //if (enemyStillAlive) { Debug.Log("enemyStillAlive: " + canva.gameStarted);  }
-
-                Debug.Log("areAllEnemiesDead: " + areAllEnemiesDead);
-                if (areAllEnemiesDead) 
-                {
-                    initialWave++;
-                    Waves(initialWave);
-                    enemyStillAlive = null;
-                }
-            }
-        }*/
-        
+        HandleWaveSpawning();
     }
+
+    private void SetupWave(int waveNumber)
+    {
+        enemysLeft = 0;
+        spawnsDoneInCurrentWave = 0;
+        nextSpawnTime = Time.time + spawnDelay;
+    }
+
+    private void HandleWaveSpawning()
+    {
+        Debug.Log("HandleWaveSpawning - spawnsDoneInCurrentWave: " + spawnsDoneInCurrentWave); 
+        Debug.Log("HandleWaveSpawning - spawnsPerWave: " + spawnsPerWave);
+        if (spawnsDoneInCurrentWave >= spawnsPerWave)
+            return;
+
+        Debug.Log("HandleWaveSpawning - nextSpawnTime: " + nextSpawnTime);
+        if (Time.time < nextSpawnTime)
+            return;
+
+        Debug.Log("HandleWaveSpawning - currentWave: " + currentWave);
+        switch (currentWave)
+        {
+            case 1:
+                LoadWave1();
+                break;
+            case 2:
+                LoadWave2();
+                break;
+            case 3:
+                LoadWave3();
+                break;
+                // case 4: SpawnWave4Pattern(); ...
+        }
+
+        spawnsDoneInCurrentWave++;
+        nextSpawnTime = Time.time + spawnDelay;
+    }
+
 }
