@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c6f0c755e4ad348977dc275909a279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 242461025}
   hoverClip: {fileID: 8300000, guid: 392dcbb049aebf547bfdc0497df846a2, type: 3}
 --- !u!114 &32114708
 MonoBehaviour:
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2291b991a1584fe4c80f235d0b506fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 242461025}
   clickClip: {fileID: 8300000, guid: 7e552de57c244e44aabf451cb9d20a5f, type: 3}
 --- !u!1 &47537814
 GameObject:
@@ -7840,7 +7840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1035334184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10026,7 +10026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1501175418
 RectTransform:
   m_ObjectHideFlags: 0

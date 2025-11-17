@@ -7,10 +7,14 @@ public class Player : MonoBehaviour
     [SerializeField] public string Enemytag;
     [SerializeField] public float HitPoints = 4f;
 
+    private PlayerAudio playerAudio;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        playerAudio = GetComponent<PlayerAudio>();
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(Enemytag))
@@ -26,7 +30,11 @@ public class Player : MonoBehaviour
 
     private void takeDamage(float x)
     {
-        animator.SetTrigger("OnHit"); 
+        animator.SetTrigger("OnHit");
+
+        if (playerAudio != null)
+            playerAudio.PlayHit();
+
         HitPoints -= x;
         if (HitPoints <= 0)
         {
@@ -38,10 +46,14 @@ public class Player : MonoBehaviour
     {
         animator.SetTrigger("Dead");
 
+        if (playerAudio != null)
+            playerAudio.PlayDeath();
+
         Destroy(GetComponent<BoxCollider2D>());
     }
+
     private void OnDeadAnimation()
     {
-        Destroy(gameObject,0f);
+        Destroy(gameObject, 0f);
     }
 }

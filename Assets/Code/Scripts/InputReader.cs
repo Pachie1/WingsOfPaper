@@ -20,7 +20,6 @@ public class InputReader : MonoBehaviour
     [Header("Player Shooting")]
     [SerializeField] private GameObject pfBullet;
 
-
     [Header("Bullet Attributes")]
     [SerializeField] private float firingRate = 0.2f;
 
@@ -28,10 +27,12 @@ public class InputReader : MonoBehaviour
     public float bulletLife = 1f;
     private float timer = 0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private PlayerAudio playerAudio;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerAudio = GetComponent<PlayerAudio>();
 
         moveAction.action.started += HandleMoveInput;
         moveAction.action.performed += HandleMoveInput;
@@ -41,11 +42,10 @@ public class InputReader : MonoBehaviour
     private void HandleMoveInput(InputAction.CallbackContext context)
     {
         var moveInput = context.ReadValue<Vector2>();
-        move = new Vector2(0f,0f);
+        move = new Vector2(0f, 0f);
         move += moveInput * speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         rb.linearVelocity = move;
@@ -66,8 +66,11 @@ public class InputReader : MonoBehaviour
         if (pfBullet)
         {
             GameObject instance = Instantiate(pfBullet, FirePoint.transform.position, FirePoint.transform.rotation);
+
+            if (playerAudio != null)
+                playerAudio.PlayShoot();
         }
-        else 
+        else
         {
             Debug.LogError("Asigna la bullet");
         }
