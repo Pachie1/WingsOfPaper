@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 213537816}
-  mainMenu:
+  level:
     scenes:
     - Menus
 --- !u!4 &1175572910

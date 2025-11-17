@@ -52,7 +52,10 @@ public class EnemyManager : MonoBehaviour
 
 
     [SerializeField] private float spawnDelay = 0.5f;   
-    [SerializeField] private int spawnsPerWave = 3; 
+    [SerializeField] private int spawnsPerWave = 3;
+
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Level level;
 
     private int currentWave;
     private int spawnsDoneInCurrentWave = 0;
@@ -128,7 +131,11 @@ public class EnemyManager : MonoBehaviour
         enemySpawner2.Spawn(patrolPoints2_Wave10);
         enemySpawner3.Spawn(patrolPoints3_Wave10);
     }
-    // Update is called once per frame
+
+    void ReturnToMenu()
+    {
+        gameManager.LoadScene(level);
+    }
 
     public void enemyHasDied()
     {
@@ -205,7 +212,9 @@ public class EnemyManager : MonoBehaviour
             case 10:
                 LoadWave10();
                 break;
-
+            case 11:
+                ReturnToMenu();
+                break;
         }
 
         spawnsDoneInCurrentWave++;
