@@ -15,6 +15,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip mainTheme;
     [SerializeField] private bool playMusicOnStart = true;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         if (playMusicOnStart)
@@ -28,7 +33,7 @@ public class AudioManager : MonoBehaviour
         if (clip == null || musicSource == null) return;
 
         musicSource.clip = clip;
-        musicSource.pitch = 1f;    
+        musicSource.pitch = 1f;
         musicSource.loop = true;
         musicSource.Play();
     }

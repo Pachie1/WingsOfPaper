@@ -8,20 +8,7 @@ public class UIButtonHoverSound : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("HOVER UI en: " + gameObject.name);
-
-        if (audioManager == null)
-        {
-            Debug.LogError("AudioManager NO asignado en " + gameObject.name);
-            return;
-        }
-
-        if (hoverClip == null)
-        {
-            Debug.LogError("hoverClip NO asignado en " + gameObject.name);
-            return;
-        }
-
+        if (audioManager == null || hoverClip == null) return;
         audioManager.PlayUISound(hoverClip);
     }
 }
