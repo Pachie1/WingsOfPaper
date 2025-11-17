@@ -326,13 +326,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1175572908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49a592810197ff746aa8ac1293c79de8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c2ff4de1190ff248a1dab80291b6087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 213537816}
   mainMenu:
     scenes:
-    - SampleScene
+    - Menus
 --- !u!4 &1175572910
 Transform:
   m_ObjectHideFlags: 0

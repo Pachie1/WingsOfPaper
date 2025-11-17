@@ -3,11 +3,16 @@
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
-    [SerializeField] private Level mainMenu;
+    [SerializeField] private Level level;
 
     private void Start()
     {
-        levelManager.LoadLevel(mainMenu);
+        levelManager.LoadLevel(level);
+    }
+
+    public void LoadScene(Level level) 
+    {
+        levelManager.LoadLevel(level);
     }
 
 }
