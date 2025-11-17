@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLife: 5
   rotation: 0
-  speed: 10
+  speed: 7
   damage: 1
 --- !u!212 &-6036428260650701972
 SpriteRenderer:

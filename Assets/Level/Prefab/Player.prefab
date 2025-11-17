@@ -309,7 +309,7 @@ MonoBehaviour:
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   attackAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   pfBullet: {fileID: 4798221406015080201, guid: e439f348e25bcb447b7cc36aae8cf510, type: 3}
-  firingRate: 0.2
+  firingRate: 0.27
   bulletLife: 1
 --- !u!114 &-3530542103482245617
 MonoBehaviour:

@@ -5035,7 +5035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287fbfc519bec244992a2b004b3130b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWave: 10
+  initialWave: 1
   enemySpawner1: {fileID: 1942169636}
   enemySpawner2: {fileID: 1389151854}
   enemySpawner3: {fileID: 1158239238}

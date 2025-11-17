@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 8273231907529082068, guid: 9750ede16088322419eff84b6d893f2b, type: 3}
   bulletLife: 1
-  speed: 1
+  speed: 7
   spawnerType: 1
   firingRate: 2
   FirePoint: {fileID: 3506018208982104683}
