@@ -22,7 +22,7 @@ public class BGScroll : MonoBehaviour
     void Update()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
-        if (transform.position.y < (originX - spriteWidth/2))
+        if (transform.position.y < (originX - spriteWidth / 2))
         {
             transform.Translate(spriteWidth, 0, 0);
         }

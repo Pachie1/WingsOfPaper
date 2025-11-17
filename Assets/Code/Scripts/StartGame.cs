@@ -8,7 +8,7 @@ public class StartGame : MonoBehaviour
     [SerializeField] private InputActionReference enterAction;
     private void Awake()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0f;//
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +24,6 @@ public class StartGame : MonoBehaviour
         {
             Time.timeScale = 1f;
             canvas.SetActive(false);
-        }
+        } 
     }
 }

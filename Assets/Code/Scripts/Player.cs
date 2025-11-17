@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
             {
                 takeDamage(bullet.damage);
             }
-
         }
     }
 
