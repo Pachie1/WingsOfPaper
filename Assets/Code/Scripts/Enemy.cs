@@ -7,15 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] public string Enemytag;
     [SerializeField] public float HitPoints = 4f;
 
-    public GameObject enemyManagerGO;
-    private EnemyManager enemyManager;
-
     private void Start()
     {
         animator = GetComponent<Animator>();
-
-        enemyManager = enemyManagerGO.GetComponent<EnemyManager>();
-        enemyManager.enemyHasSpawned();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -48,7 +42,6 @@ public class Enemy : MonoBehaviour
     }
     private void OnDeadAnimation()
     {
-        enemyManager.enemyHasDied();
         Destroy(gameObject, 0f);
     }
 }

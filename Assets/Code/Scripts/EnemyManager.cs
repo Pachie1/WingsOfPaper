@@ -61,13 +61,10 @@ public class EnemyManager : MonoBehaviour
     private int spawnsDoneInCurrentWave = 0;
     private float nextSpawnTime = 0f;
 
-    private int enemysLeft = 0;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemysLeft = 0;
         currentWave = initialWave;
         SetupWave(currentWave);
     }
@@ -137,18 +134,6 @@ public class EnemyManager : MonoBehaviour
         gameManager.LoadScene(level);
     }
 
-    public void enemyHasDied()
-    {
-        enemysLeft--;
-        
-    }
-
-    public void enemyHasSpawned()
-    {
-        enemysLeft++;
-        
-    }
-
     void Update()
     {
         HandleWaveSpawning();
@@ -167,7 +152,6 @@ public class EnemyManager : MonoBehaviour
 
     private void SetupWave(int waveNumber)
     {
-        enemysLeft = 0;
         spawnsDoneInCurrentWave = 0;
         nextSpawnTime = Time.time + spawnDelay;
     }

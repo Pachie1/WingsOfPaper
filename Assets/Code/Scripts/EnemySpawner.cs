@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject prefab;
-    public EnemyManager manager;  
+    public GameObject prefab; 
 
     public void Spawn(Transform[] patrolPoints)
     {
@@ -11,10 +10,5 @@ public class EnemySpawner : MonoBehaviour
 
         EnemyPatrol patrol = enemy.GetComponent<EnemyPatrol>();
         patrol.patrolPoints = patrolPoints;
-
-        Enemy enemyScript = enemy.GetComponent<Enemy>();
-        enemyScript.enemyManagerGO = manager.gameObject;
-
-        manager.enemyHasSpawned();
     }
 }
