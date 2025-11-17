@@ -4,13 +4,13 @@ using UnityEngine.InputSystem;
 public class PressAnyKey: MonoBehaviour
 {
     [SerializeField] private InputActionReference action;
-
+    [SerializeField] private GameObject MainMenu;
 
     private void Update()
     {
         if (action.action.IsPressed())
         {
-           
+            MainMenu.SetActive(true);
         }
     }
 }
