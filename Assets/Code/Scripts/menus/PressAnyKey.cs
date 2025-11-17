@@ -10,7 +10,9 @@ public class PressAnyKey: MonoBehaviour
     {
         if (action.action.IsPressed())
         {
+            Debug.Log("AnyKey");
             MainMenu.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

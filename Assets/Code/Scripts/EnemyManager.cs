@@ -85,123 +85,77 @@ public class EnemyManager : MonoBehaviour
     {
         enemySpawner1.Spawn(patrolPoints1_Wave3);
     }
-    /*
-    IEnumerator LoadWave4()
+
+    void LoadWave4()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave4);
         enemySpawner2.Spawn(patrolPoints2_Wave4);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave4());
-        }
-
     }
 
-    IEnumerator LoadWave5()
+    void LoadWave5()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave5);
         enemySpawner2.Spawn(patrolPoints2_Wave5);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave5());
-        }
-
     }
 
-    IEnumerator LoadWave6()
+    void LoadWave6()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave6);
         enemySpawner2.Spawn(patrolPoints2_Wave6);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave6());
-        }
-
     }
 
-    IEnumerator LoadWave7()
+    void LoadWave7()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave7);
         enemySpawner2.Spawn(patrolPoints2_Wave7);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave7());
-        }
-
     }
 
-    IEnumerator LoadWave8()
+    void LoadWave8()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave8);
         enemySpawner2.Spawn(patrolPoints2_Wave8);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave8());
-        }
-
     }
 
-    IEnumerator LoadWave9()
+    void LoadWave9()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave9);
         enemySpawner2.Spawn(patrolPoints2_Wave9);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave9());
-        }
-
     }
 
-    IEnumerator LoadWave10()
+    void LoadWave10()
     {
-        yield return new WaitForSeconds(0.5f);
         enemySpawner1.Spawn(patrolPoints1_Wave10);
         enemySpawner2.Spawn(patrolPoints2_Wave10);
         enemySpawner3.Spawn(patrolPoints3_Wave10);
-        if (enemysSpawned < 3)
-        {
-            enemysSpawned++;
-            StartCoroutine(LoadWave10());
-        }
-
-    }*/
+    }
     // Update is called once per frame
 
     public void enemyHasDied()
     {
         enemysLeft--;
-        Debug.Log("enemyHasDied - enemysLeft: " + enemysLeft); 
-        if (enemysLeft == 0) 
-        {
-            initialWave++;
-
-            currentWave++;
-            initialWave = currentWave; 
-            SetupWave(currentWave);
-        }
+        
     }
 
     public void enemyHasSpawned()
     {
         enemysLeft++;
-        Debug.Log("enemyHasSpawned - enemysLeft: " + enemysLeft);
+        
     }
 
     void Update()
     {
         HandleWaveSpawning();
+
+        GameObject[] EnemysAlive = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if ((EnemysAlive.Length == 0)&&(spawnsDoneInCurrentWave >= spawnsPerWave))
+        {
+            initialWave++;
+
+            currentWave++;
+            initialWave = currentWave;
+            SetupWave(currentWave);
+        }
     }
 
     private void SetupWave(int waveNumber)
@@ -213,16 +167,12 @@ public class EnemyManager : MonoBehaviour
 
     private void HandleWaveSpawning()
     {
-        Debug.Log("HandleWaveSpawning - spawnsDoneInCurrentWave: " + spawnsDoneInCurrentWave); 
-        Debug.Log("HandleWaveSpawning - spawnsPerWave: " + spawnsPerWave);
         if (spawnsDoneInCurrentWave >= spawnsPerWave)
             return;
 
-        Debug.Log("HandleWaveSpawning - nextSpawnTime: " + nextSpawnTime);
         if (Time.time < nextSpawnTime)
             return;
 
-        Debug.Log("HandleWaveSpawning - currentWave: " + currentWave);
         switch (currentWave)
         {
             case 1:
@@ -234,7 +184,28 @@ public class EnemyManager : MonoBehaviour
             case 3:
                 LoadWave3();
                 break;
-                // case 4: SpawnWave4Pattern(); ...
+            case 4:
+                LoadWave4();
+                break;
+            case 5:
+                LoadWave5();
+                break;
+            case 6:
+                LoadWave6();
+                break;
+            case 7:
+                LoadWave7();
+                break;
+            case 8:
+                LoadWave8();
+                break;
+            case 9:
+                LoadWave9();
+                break;
+            case 10:
+                LoadWave10();
+                break;
+
         }
 
         spawnsDoneInCurrentWave++;
