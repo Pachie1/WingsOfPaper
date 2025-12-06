@@ -75,4 +75,28 @@ public class InputReader : MonoBehaviour
             Debug.LogError("Asigna la bullet");
         }
     }
+
+
+    //Pause
+    private void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged; 
+    }
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        if (newGameState == GameState.Gameplay)
+        {
+            enabled = true;
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(0f, 0f); 
+            enabled = false;
+        }
+    }
 }

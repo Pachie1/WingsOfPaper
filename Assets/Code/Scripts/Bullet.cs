@@ -10,7 +10,8 @@ public class Bullet : MonoBehaviour
     private Vector2 spawnPoint;
     private float timer = 0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+
     void Start()
     {
         spawnPoint = new Vector2(transform.position.x, transform.position.y);
@@ -35,4 +36,26 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    //Pause
+    private void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    { 
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+    private void OnGameStateChanged(GameState newGameState) 
+    {
+        if (newGameState == GameState.Gameplay)
+        {
+            enabled = true;
+        }
+        else 
+        {
+            enabled = false;
+        }
+    } 
 }

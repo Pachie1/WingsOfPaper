@@ -5,13 +5,12 @@ public class EnemyPatrol : MonoBehaviour
     public Transform[] patrolPoints;
     public int targetPoint;
     public float speed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         targetPoint = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Mathf.Approximately(Vector3.Distance(transform.position, patrolPoints[targetPoint].position), 0))
@@ -27,6 +26,29 @@ public class EnemyPatrol : MonoBehaviour
         if (patrolPoints.Length <= targetPoint)
         {
             targetPoint = 0;
+        }
+    }
+
+
+    //Pause
+    private void Awake()
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    { 
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        if (newGameState == GameState.Gameplay)
+        {
+            enabled = true;
+        }
+        else
+        {
+            enabled = false;
         }
     }
 }

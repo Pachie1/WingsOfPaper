@@ -4332,6 +4332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1545847031}
   - component: {fileID: 1545847030}
+  - component: {fileID: 1545847032}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4369,6 +4370,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545847032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545847029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10735407e2b53944580ce7626ea2c0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseAction: {fileID: 2127574436734773471, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &1564742736
 GameObject:
   m_ObjectHideFlags: 0
@@ -5242,7 +5256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287fbfc519bec244992a2b004b3130b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWave: 1
+  initialWave: 10
   enemySpawner1: {fileID: 1942169636}
   enemySpawner2: {fileID: 1389151854}
   enemySpawner3: {fileID: 1158239238}

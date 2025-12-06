@@ -205,4 +205,27 @@ public class EnemyManager : MonoBehaviour
         nextSpawnTime = Time.time + spawnDelay;
     }
 
+
+
+    //Pause
+    private void Awake()
+    { 
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        if (newGameState == GameState.Gameplay)
+        {
+            enabled = true;
+        }
+        else
+        {
+            enabled = false;
+        }
+    }
 }

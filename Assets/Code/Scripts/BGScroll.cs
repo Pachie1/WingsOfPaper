@@ -8,7 +8,7 @@ public class BGScroll : MonoBehaviour
     private float spriteHeight;
     private float spriteWidth;
     private float originX;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         originX = transform.position.x;
@@ -18,13 +18,35 @@ public class BGScroll : MonoBehaviour
         spriteWidth = spriteBounds.size.x;
     }
 
-    // Update is called once per frame 
     void Update()
     {
         transform.Translate(-speed * Time.deltaTime, 0, 0);
         if (transform.position.y < (originX - spriteWidth / 2))
         {
             transform.Translate(spriteWidth, 0, 0);
+        }
+    }
+
+
+    //Pause
+    private void Awake() 
+    {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
+    private void OnGameStateChanged(GameState newGameState)
+    {
+        if (newGameState == GameState.Gameplay)
+        {
+            enabled = true;
+        }
+        else
+        {
+            enabled = false;
         }
     }
 }

@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1199206273369436327}
   FirePoint: {fileID: 1379449713237534231}
-  speed: 2
+  speed: 4
   moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   attackAction: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   pfBullet: {fileID: 4798221406015080201, guid: e439f348e25bcb447b7cc36aae8cf510, type: 3}
