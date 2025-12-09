@@ -1,39 +1,38 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ResetButton : MonoBehaviour
 {
+    [Header("Pause Menu")]
+    [SerializeField] private GameObject pauseMenu;
+
     [Header("Buttons")]
+    [SerializeField] private Button buttonResume;
     [SerializeField] private Button buttonReset;
     [SerializeField] private Button buttonExit;
-
-    [Header("Player")]
-    [SerializeField] private GameObject Player;
-    [SerializeField] private string playerTag = "Player";
 
     [Header("Exit Event")]
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Level level;
 
+    private PauseController pauseController;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        buttonResume.onClick.AddListener(ResumeScene);
         buttonReset.onClick.AddListener(ResetScene);
         buttonExit.onClick.AddListener(ExitScene);
     }
 
-    // Update is called once per frame
-    void Update()
+    void ResumeScene()
     {
-        if (!Player) 
-        {
-            buttonReset.gameObject.SetActive(true);
-            buttonExit.gameObject.SetActive(true);
-        }
+        pauseMenu.SetActive(false);
+        pauseController = gameManager.GetComponent<PauseController>();
+        pauseController.ChangeGameState();
     }
-
     void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

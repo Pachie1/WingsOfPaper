@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: f6587f0c2f7ab5041b8ef37891bd930b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 836023105048073361
+    second: OptionsBackground_0
+  - first:
+      213: 232456774003555974
+    second: OptionsBackground_1
+  - first:
+      213: -4182912687375679755
+    second: OptionsBackground_2
+  - first:
+      213: 7176270381327563447
+    second: OptionsBackground_3
+  - first:
+      213: -6102505285562438038
+    second: OptionsBackground_4
+  - first:
+      213: -7575311568393726503
+    second: OptionsBackground_5
+  - first:
+      213: 7363789752763408417
+    second: OptionsBackground_6
+  - first:
+      213: -9060340928724726427
+    second: OptionsBackground_7
+  - first:
+      213: -2880441659161686137
+    second: OptionsBackground_8
+  - first:
+      213: -8966557711494130057
+    second: OptionsBackground_9
+  - first:
+      213: 5575124055897655313
+    second: OptionsBackground_10
+  - first:
+      213: -106865415097180849
+    second: OptionsBackground_11
+  - first:
+      213: 7409982083225220340
+    second: OptionsBackground_12
+  - first:
+      213: -5060568358944480828
+    second: OptionsBackground_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OptionsBackground_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 845
+        width: 871
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194d868a5962a9b00800000000000000
+      internalID: 836023105048073361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1044
+        width: 107
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68e7d10543ad93300800000000000000
+      internalID: 232456774003555974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_2
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 1083
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe7f76a21f43f5c0800000000000000
+      internalID: -4182912687375679755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_3
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 1043
+        width: 109
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7babf2be3eb379360800000000000000
+      internalID: 7176270381327563447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 68
+        width: 303
+        height: 978
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e6b1676cb8f4ba0800000000000000
+      internalID: -6102505285562438038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 355
+        width: 479
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d51cf6a3461fd690800000000000000
+      internalID: -7575311568393726503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_6
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 647
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 120ef1ed3cf613660800000000000000
+      internalID: 7363789752763408417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_7
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 7
+        width: 463
+        height: 1038
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d0e67dde3334280800000000000000
+      internalID: -9060340928724726427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_8
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 648
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f4e6d729d9608d0800000000000000
+      internalID: -2880441659161686137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_9
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 647
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7765a5ca443609380800000000000000
+      internalID: -8966557711494130057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_10
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 647
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118c3826ac1de5d40800000000000000
+      internalID: 5575124055897655313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_11
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 646
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d9b5e9876548ef0800000000000000
+      internalID: -106865415097180849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_12
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 643
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4f5a6e17b85d660800000000000000
+      internalID: 7409982083225220340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OptionsBackground_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 11
+        width: 594
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c1688bb3ef35c9b0800000000000000
+      internalID: -5060568358944480828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OptionsBackground_0: 836023105048073361
+      OptionsBackground_1: 232456774003555974
+      OptionsBackground_10: 5575124055897655313
+      OptionsBackground_11: -106865415097180849
+      OptionsBackground_12: 7409982083225220340
+      OptionsBackground_13: -5060568358944480828
+      OptionsBackground_2: -4182912687375679755
+      OptionsBackground_3: 7176270381327563447
+      OptionsBackground_4: -6102505285562438038
+      OptionsBackground_5: -7575311568393726503
+      OptionsBackground_6: 7363789752763408417
+      OptionsBackground_7: -9060340928724726427
+      OptionsBackground_8: -2880441659161686137
+      OptionsBackground_9: -8966557711494130057
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
