@@ -1,0 +1,51 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HealthDisplay : MonoBehaviour
+{
+    public int health;
+    public int maxHealth;
+
+    public Sprite emptyHealth;
+    public Sprite fullHeart;
+    public Image[] hearts;
+
+    public Player player;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        health = player.HitPoints;
+        maxHealth = player.maxHitPoints;
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health) 
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHealth;
+            }
+
+
+
+            if (i < maxHealth) 
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+    }
+
+
+}

@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] public float bulletLife = 1f;
     [SerializeField] public float rotation = 0f;
     [SerializeField] public float speed;
-    [SerializeField] public float damage = 1f;
+    [SerializeField] public int damage = 1;
 
     private Vector2 spawnPoint;
     private float timer = 0f;

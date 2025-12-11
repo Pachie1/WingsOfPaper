@@ -57,7 +57,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Level level;
 
-    private int currentWave;
+    public int currentWave;
     private int spawnsDoneInCurrentWave = 0;
     private float nextSpawnTime = 0f;
 

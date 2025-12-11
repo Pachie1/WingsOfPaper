@@ -5,7 +5,8 @@ public class Player : MonoBehaviour
 {
     private Animator animator;
     [SerializeField] public string Enemytag;
-    [SerializeField] public float HitPoints = 4f;
+    [SerializeField] public int HitPoints;
+    [SerializeField] public int maxHitPoints;
 
     private PlayerAudio playerAudio;
 
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void takeDamage(float x)
+    private void takeDamage(int x)
     {
         animator.SetTrigger("OnHit");
 

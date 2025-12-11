@@ -35,6 +35,7 @@ public class ResetButton : MonoBehaviour
     }
     void ResetScene()
     {
+        Debug.Log("ResetScene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
