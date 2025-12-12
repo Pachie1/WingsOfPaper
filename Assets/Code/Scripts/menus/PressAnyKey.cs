@@ -1,18 +1,38 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; 
-public class PressAnyKey: MonoBehaviour
+using UnityEngine.InputSystem;
+public class PressAnyKey : MonoBehaviour
 {
-    [SerializeField] private InputActionReference action;
+    [SerializeField] private InputActionReference startAction;
     [SerializeField] private GameObject MainMenu;
 
-    private void Update()
+    void OnEnable()
     {
-        if (action.action.IsPressed())
+        if (startAction != null && startAction.action != null)
         {
-            Debug.Log("AnyKey");
-            MainMenu.SetActive(true);
-            gameObject.SetActive(false);
+            startAction.action.Enable();
         }
+    }
+    void OnDisable()
+    {
+        if (startAction != null && startAction.action != null)
+        {
+            startAction.action.Disable();
+        }
+    }
+    void Update()
+    {
+        if (startAction != null && startAction.action != null && startAction.action.WasPressedThisFrame())
+        {
+            StartGame();
+        }
+    }
+    void StartGame()
+    {
+        MainMenu.SetActive(true);
+        gameObject.SetActive(false);
+        enabled = false;
+
+        Debug.Log("Starting game sequence.");
     }
 }

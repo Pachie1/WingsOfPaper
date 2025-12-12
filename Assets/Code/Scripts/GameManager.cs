@@ -22,13 +22,16 @@ public class GameManager : MonoBehaviour
     {
         levelManager.LoadLevel(level);
     }
-
     void Update()
     {
         if (!Player)
         {
-            Debug.Log("No esta el player");
-            ResetCanvas.SetActive(true);
+            Debug.Log("Player not present");
+
+            if (ResetCanvas != null)
+            {
+                ResetCanvas.SetActive(true);
+            }
         }
     }
 }
