@@ -32,7 +32,5 @@ public class PressAnyKey : MonoBehaviour
         MainMenu.SetActive(true);
         gameObject.SetActive(false);
         enabled = false;
-
-        Debug.Log("Starting game sequence.");
     }
 }

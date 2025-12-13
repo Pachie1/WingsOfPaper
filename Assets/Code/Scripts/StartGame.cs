@@ -12,11 +12,10 @@ public class StartGame : MonoBehaviour
     }
     void Start()
     {
-  
+        Time.timeScale = 0f;
     }
     void Update()
     {
-        //if (anyKey.triggered)
         if (enterAction.action.IsPressed())
         {
             Time.timeScale = 1f;

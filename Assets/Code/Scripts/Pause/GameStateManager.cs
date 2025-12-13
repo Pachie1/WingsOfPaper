@@ -13,7 +13,6 @@ public class GameStateManager : MonoBehaviour
             GameObject GameStateManagersAlive = GameObject.FindGameObjectWithTag("GameStateManagerTag");
             if (GameStateManagersAlive == null)
             {
-                Debug.Log("--------instance gameStateObject--------");
                 GameObject gameStateObject = new GameObject("GameStateManager");
                 _instance = gameStateObject.AddComponent<GameStateManager>();
                 _instance.gameObject.tag = "GameStateManagerTag";
@@ -30,8 +29,6 @@ public class GameStateManager : MonoBehaviour
 
     public void SetState(GameState newGameState)
     {
-        Debug.Log("SetState - newGameState: " + newGameState); 
-        Debug.Log("SetState - CurrentGameState: " + CurrentGameState);
         if (newGameState == CurrentGameState)
         {
             return;
