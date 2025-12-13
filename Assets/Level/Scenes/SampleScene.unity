@@ -6767,7 +6767,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.31
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000f3d9b6d31bdbdd0e7372ff20
@@ -16145,6 +16145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981859877}
   - component: {fileID: 1981859878}
+  - component: {fileID: 1981859879}
   m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
@@ -16183,7 +16184,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
+  m_Color: {r: 0.93962264, g: 0.93962264, b: 0.93962264, a: 0.6117647}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -16219,6 +16220,24 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1981859879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981859876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732a23bf6cb3d464d8814bb3de83cc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light2D: {fileID: 1981859878}
+  speed: 3
+  intensityMin: 0.1
+  intensityMax: 0.5
+  radiusOuter: 0.5
+  radiusInner: 0.1
 --- !u!1 &1986784496
 GameObject:
   m_ObjectHideFlags: 0
