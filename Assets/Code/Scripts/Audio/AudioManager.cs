@@ -3,6 +3,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance { get; private set; }
+
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
@@ -17,15 +19,27 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private bool playMusicOnStart = true;
 
     [Header("Audio Mixer")]
-    [SerializeField] private AudioMixer mainMixer;
+    [SerializeField] public AudioMixer mainMixer;
 
     [Header("UI Global Clips")]
     [SerializeField] private AudioClip defaultClickClip;
     [SerializeField] private AudioClip defaultHoverClip;
 
+    private const string MASTER_VOL_KEY = "MasterVolume";
+    private const string MUSIC_VOL_KEY = "MusicVolume";
+    private const string SFX_VOL_KEY = "SFXVolume";
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void Start()
@@ -34,6 +48,24 @@ public class AudioManager : MonoBehaviour
         {
             PlayMusic(mainTheme);
         }
+
+        if (uiSource != null)
+        {
+            uiSource.ignoreListenerPause = true;
+        }
+
+        LoadInitialVolumes();
+    }
+
+    public void LoadInitialVolumes()
+    {
+        float masterVol = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 1f);
+        float musicVol = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, 1f);
+        float sfxVol = PlayerPrefs.GetFloat(SFX_VOL_KEY, 1f);
+
+        SetMasterVolume(masterVol);
+        SetMusicVolume(musicVol);
+        SetSFXVolume(sfxVol);
     }
 
     public void PlayMusic(AudioClip clip)
