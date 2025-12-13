@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 public class MenuManager : MonoBehaviour
 {
@@ -9,9 +11,23 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] public GameObject currentMenu;
 
+    [SerializeField] private GameObject globalLight2D;
+    [SerializeField] private GameObject brightnessSlider;
+    private Light2D light;
+
+    private void Awake()
+    {
+        light = globalLight2D.GetComponent<Light2D>();
+    }
     private void Start()
     {
         Debug.Log("currentMenu: " + currentMenu);
+        brightnessSlider.GetComponent<Slider>().value = light.intensity;
+    }
+
+    private void Update()
+    {   
+        light.intensity = brightnessSlider.GetComponent<Slider>().value;
     }
     public void ToggleFullScreen() 
     {

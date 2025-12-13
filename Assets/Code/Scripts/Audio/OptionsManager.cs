@@ -17,10 +17,13 @@ public class OptionsManager : MonoBehaviour
 
     private bool isInitialized = false;
 
+    private float masterSliderValueFloat;
+
     private void OnEnable()
     {
         if (AudioManager.Instance != null)
         {
+            Debug.Log("Encontre audio");
             LoadSettings();
         }
     }
@@ -32,8 +35,14 @@ public class OptionsManager : MonoBehaviour
             InitializeListeners();
             isInitialized = true;
         }
+        masterSlider.value = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 1f);
     }
 
+    private void Update()
+    {
+        masterSliderValueFloat = masterSlider.value;
+        PlayerPrefs.SetFloat(MASTER_VOL_KEY,masterSliderValueFloat);
+    }
     private void InitializeListeners()
     {
         if (masterSlider != null) masterSlider.onValueChanged.AddListener(AudioManager.Instance.SetMasterVolume);
@@ -52,7 +61,10 @@ public class OptionsManager : MonoBehaviour
         }
         else
         {
-            AudioManager.Instance.SetMasterVolume(masterSlider.value);
+            //AudioManager.Instance.SetMasterVolume(masterSlider.value);
+
+
+            masterSlider.value = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 1f);
         }
 
         SaveVolumeSettings();

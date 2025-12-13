@@ -1287,7 +1287,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c94b6f685b52e404f918d754f44a849b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16104,6 +16104,8 @@ MonoBehaviour:
   optionsMenu: {fileID: 390928935}
   pauseMenu: {fileID: 286894469}
   currentMenu: {fileID: 286894469}
+  globalLight2D: {fileID: 619394800}
+  brightnessSlider: {fileID: 586453196}
 --- !u!1 &1976529028
 GameObject:
   m_ObjectHideFlags: 0
