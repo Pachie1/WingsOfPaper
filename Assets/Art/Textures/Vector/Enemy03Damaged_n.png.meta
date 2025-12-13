@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 60ed0e7b659af1949aa422717312a5c8
+guid: c5ae2867c65ad9d4f8388460dfc63f14
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8238467598467729700
-    second: Asset 36_0
+      213: -7758780587805482333
+    second: Enemy03Damaged_n_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
-    sRGBTexture: 1
+    enableMipMap: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -51,13 +51,13 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 190
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 1
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asset 36_0
+      name: Enemy03Damaged_n_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 255
-        height: 245
+        width: 152
+        height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd6f3c35e551bad80800000000000000
-      internalID: -8238467598467729700
+      spriteID: 3a268a5c926435490800000000000000
+      internalID: -7758780587805482333
       vertices: []
       indices: 
       edges: []
@@ -125,19 +125,17 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e8d1c0bdd002191498c986659f5dc83a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 58a42007b7ca5ad47a3b497a93a4482a, type: 3}
-      name: player04NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Asset 36_0: -8238467598467729700
+      Enemy03Damaged_n_0: -7758780587805482333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
