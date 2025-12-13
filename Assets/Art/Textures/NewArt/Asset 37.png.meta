@@ -108,7 +108,7 @@ TextureImporter:
         width: 254
         height: 243
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,13 +125,15 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dc9aac2283ecf0242979c5ded5e92a01
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: ef66319e23b04ff4f88948d48d04bc57, type: 3}
+      name: player05NormalMap
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
