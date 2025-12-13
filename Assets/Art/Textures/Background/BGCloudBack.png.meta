@@ -108,7 +108,7 @@ TextureImporter:
         width: 2304
         height: 284
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,13 +125,15 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 73c949ccf287c7d43ab93828f5d44dcc
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 6e1c43934fa529f40b5f298dd6de4895, type: 3}
+      name: BGCloudBackNormalMap
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:

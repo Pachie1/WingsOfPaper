@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 13e5b4627cd7c194da2020be48f988c0
+guid: 6e1c43934fa529f40b5f298dd6de4895
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6937817954938267909
-    second: 2_0
+      213: 1525250840686740824
+    second: BGCloudBack_n_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
-    sRGBTexture: 1
+    enableMipMap: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -55,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 1
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2_0
+      name: BGCloudBack_n_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 576
-        height: 261
+        width: 2304
+        height: 324
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5092c600ca4184060800000000000000
-      internalID: 6937817954938267909
+      spriteID: 855cf78fe87ca2510800000000000000
+      internalID: 1525250840686740824
       vertices: []
       indices: 
       edges: []
@@ -125,19 +125,17 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dafb05a4e676863468307b85b97adb0f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 7a485220e3847d947a3ae960b0a5ae98, type: 3}
-      name: 2NormalMap
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2_0: 6937817954938267909
+      BGCloudBack_n_0: 1525250840686740824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
