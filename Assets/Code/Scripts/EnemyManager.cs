@@ -51,7 +51,7 @@ public class EnemyManager : MonoBehaviour
     private StartGame canva;
 
 
-    [SerializeField] private float spawnDelay = 0.5f;   
+    [SerializeField] private float spawnDelay = 0.5f;
     [SerializeField] private int spawnsPerWave = 3;
 
     [SerializeField] private GameManager gameManager;
@@ -62,16 +62,15 @@ public class EnemyManager : MonoBehaviour
     private float nextSpawnTime = 0f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentWave = initialWave;
         SetupWave(currentWave);
     }
 
-   
+
     void LoadWave1()
-    { 
+    {
         enemySpawner1.Spawn(patrolPoints1_Wave1);
     }
 
@@ -140,7 +139,7 @@ public class EnemyManager : MonoBehaviour
 
         GameObject[] EnemysAlive = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if ((EnemysAlive.Length == 0)&&(spawnsDoneInCurrentWave >= spawnsPerWave))
+        if ((EnemysAlive.Length == 0) && (spawnsDoneInCurrentWave >= spawnsPerWave))
         {
             initialWave++;
 
@@ -205,11 +204,26 @@ public class EnemyManager : MonoBehaviour
         nextSpawnTime = Time.time + spawnDelay;
     }
 
+    // PUBLIC METHOD FOR CHEAT MANAGER (F5 & F4 logic)
+    public void ForceNextWave()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        if (enemies.Length > 0)
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                Destroy(enemy);
+            }
+        }
 
-    //Pause
+        spawnsDoneInCurrentWave = spawnsPerWave;
+
+        Debug.Log("Forcing jump to next wave. ENEMIES DESTROYED.");
+    }
+
     private void Awake()
-    { 
+    {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
 

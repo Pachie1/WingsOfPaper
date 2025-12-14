@@ -8,29 +8,34 @@ public class Player : MonoBehaviour
     [SerializeField] public int HitPoints;
     [SerializeField] public int maxHitPoints;
 
-    private PlayerAudio playerAudio;
+    public bool isInvincible = false;
 
+    private PlayerAudio playerAudio;
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerAudio = GetComponent<PlayerAudio>();
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(Enemytag))
         {
-            Destroy(other.gameObject);
             Bullet bullet = other.GetComponent<Bullet>();
+
             if (bullet)
             {
+                Destroy(other.gameObject);
                 takeDamage(bullet.damage);
             }
         }
     }
-
     private void takeDamage(int x)
     {
+        if (isInvincible)
+        {
+            return;
+        }
+
         animator.SetTrigger("OnHit");
 
         if (playerAudio != null)
@@ -42,7 +47,6 @@ public class Player : MonoBehaviour
             Die();
         }
     }
-
     private void Die()
     {
         animator.SetTrigger("Dead");
@@ -52,7 +56,6 @@ public class Player : MonoBehaviour
 
         Destroy(GetComponent<BoxCollider2D>());
     }
-
     private void OnDeadAnimation()
     {
         Destroy(gameObject, 0f);
