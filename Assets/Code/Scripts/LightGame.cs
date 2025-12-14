@@ -16,7 +16,7 @@ public class LightGame : MonoBehaviour
 
     void Update()
     {
-        GetComponent<Light>().intensity = Mathf.Lerp(
+        GetComponent<Light2D>().intensity = Mathf.Lerp(
        intensityMax, intensityMin,
        Mathf.PingPong(Time.time * speed, 2)
       );

@@ -7,95 +7,97 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
-
     [SerializeField] private Toggle muteAllToggle;
 
-    private const string MASTER_VOL_KEY = "MasterVolume";
-    private const string MUSIC_VOL_KEY = "MusicVolume";
-    private const string SFX_VOL_KEY = "SFXVolume";
-    private const string MUTE_KEY = "MuteAll";
-
-    private bool isInitialized = false;
-
-    private float masterSliderValueFloat;
+    private bool hooked = false;
 
     private void OnEnable()
     {
+        if (AudioManager.Instance == null) return;
+
+        AudioManager.Instance.OnSettingsChanged += HandleSettingsChanged;
+
+        HandleSettingsChanged(
+            AudioManager.Instance.Master01,
+            AudioManager.Instance.Music01,
+            AudioManager.Instance.Sfx01,
+            AudioManager.Instance.Muted
+        );
+
+        HookUI();
+    }
+
+    private void OnDisable()
+    {
         if (AudioManager.Instance != null)
-        {
-            Debug.Log("Encontre audio");
-            LoadSettings();
-        }
+            AudioManager.Instance.OnSettingsChanged -= HandleSettingsChanged;
+
+        UnhookUI();
     }
 
-    private void Start()
+    private void HookUI()
     {
-        if (!isInitialized)
-        {
-            InitializeListeners();
-            isInitialized = true;
-        }
-        masterSlider.value = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 1f);
+        if (hooked) return;
+        hooked = true;
+
+        if (masterSlider != null) masterSlider.onValueChanged.AddListener(OnMasterChanged);
+        if (musicSlider != null) musicSlider.onValueChanged.AddListener(OnMusicChanged);
+        if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(OnSfxChanged);
+        if (muteAllToggle != null) muteAllToggle.onValueChanged.AddListener(OnMuteChanged);
     }
 
-    private void Update()
+    private void UnhookUI()
     {
-        masterSliderValueFloat = masterSlider.value;
-        PlayerPrefs.SetFloat(MASTER_VOL_KEY,masterSliderValueFloat);
-    }
-    private void InitializeListeners()
-    {
-        if (masterSlider != null) masterSlider.onValueChanged.AddListener(AudioManager.Instance.SetMasterVolume);
-        if (musicSlider != null) musicSlider.onValueChanged.AddListener(AudioManager.Instance.SetMusicVolume);
-        if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(AudioManager.Instance.SetSFXVolume);
-        if (muteAllToggle != null) muteAllToggle.onValueChanged.AddListener(SetMuteAll);
+        if (!hooked) return;
+        hooked = false;
+
+        if (masterSlider != null) masterSlider.onValueChanged.RemoveListener(OnMasterChanged);
+        if (musicSlider != null) musicSlider.onValueChanged.RemoveListener(OnMusicChanged);
+        if (sfxSlider != null) sfxSlider.onValueChanged.RemoveListener(OnSfxChanged);
+        if (muteAllToggle != null) muteAllToggle.onValueChanged.RemoveListener(OnMuteChanged);
     }
 
-    public void SetMuteAll(bool isMuted)
+    private void HandleSettingsChanged(float master01, float music01, float sfx01, bool muted)
     {
-        if (AudioManager.Instance == null || AudioManager.Instance.mainMixer == null) return;
-
-        if (isMuted)
-        {
-            AudioManager.Instance.mainMixer.SetFloat("MasterVolume", -80f);
-        }
-        else
-        {
-            //AudioManager.Instance.SetMasterVolume(masterSlider.value);
-
-
-            masterSlider.value = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 1f);
-        }
-
-        SaveVolumeSettings();
+        if (masterSlider != null) masterSlider.SetValueWithoutNotify(master01);
+        if (musicSlider != null) musicSlider.SetValueWithoutNotify(music01);
+        if (sfxSlider != null) sfxSlider.SetValueWithoutNotify(sfx01);
+        if (muteAllToggle != null) muteAllToggle.SetIsOnWithoutNotify(muted);
     }
 
-    private void LoadSettings()
+    private void OnMasterChanged(float v)
     {
-        float masterVol = PlayerPrefs.GetFloat(MASTER_VOL_KEY, 1f);
-        float musicVol = PlayerPrefs.GetFloat(MUSIC_VOL_KEY, 1f);
-        float sfxVol = PlayerPrefs.GetFloat(SFX_VOL_KEY, 1f);
-        int isMutedInt = PlayerPrefs.GetInt(MUTE_KEY, 0);
-
-        if (masterSlider != null) masterSlider.value = masterVol;
-        if (musicSlider != null) musicSlider.value = musicVol;
-        if (sfxSlider != null) sfxSlider.value = sfxVol;
-        if (muteAllToggle != null) muteAllToggle.isOn = (isMutedInt == 1);
+        if (AudioManager.Instance == null) return;
+        AudioManager.Instance.ApplySettings(v, AudioManager.Instance.Music01, AudioManager.Instance.Sfx01, AudioManager.Instance.Muted, true);
     }
 
-    public void SaveVolumeSettings()
+    private void OnMusicChanged(float v)
     {
-        if (masterSlider != null) PlayerPrefs.SetFloat(MASTER_VOL_KEY, masterSlider.value);
-        if (musicSlider != null) PlayerPrefs.SetFloat(MUSIC_VOL_KEY, musicSlider.value);
-        if (sfxSlider != null) PlayerPrefs.SetFloat(SFX_VOL_KEY, sfxSlider.value);
+        if (AudioManager.Instance == null) return;
+        AudioManager.Instance.ApplySettings(AudioManager.Instance.Master01, v, AudioManager.Instance.Sfx01, AudioManager.Instance.Muted, true);
+    }
 
-        if (muteAllToggle != null) PlayerPrefs.SetInt(MUTE_KEY, muteAllToggle.isOn ? 1 : 0);
+    private void OnSfxChanged(float v)
+    {
+        if (AudioManager.Instance == null) return;
+        AudioManager.Instance.ApplySettings(AudioManager.Instance.Master01, AudioManager.Instance.Music01, v, AudioManager.Instance.Muted, true);
+    }
 
-        PlayerPrefs.Save();
+    private void OnMuteChanged(bool muted)
+    {
+        if (AudioManager.Instance == null) return;
+        AudioManager.Instance.SetMuteAll(muted);
     }
 
     public void OnBackButtonClicked()
     {
-        SaveVolumeSettings();
+        if (AudioManager.Instance == null) return;
+        AudioManager.Instance.ApplySettings(
+            AudioManager.Instance.Master01,
+            AudioManager.Instance.Music01,
+            AudioManager.Instance.Sfx01,
+            AudioManager.Instance.Muted,
+            true
+        );
     }
 }
