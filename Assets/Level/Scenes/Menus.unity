@@ -4540,7 +4540,7 @@ MonoBehaviour:
   masterSlider: {fileID: 433599384}
   musicSlider: {fileID: 1858811584}
   sfxSlider: {fileID: 282310404}
-  muteAllToggle: {fileID: 0}
+  muteAllToggle: {fileID: 1999811396371932775}
 --- !u!1 &740970878
 GameObject:
   m_ObjectHideFlags: 0

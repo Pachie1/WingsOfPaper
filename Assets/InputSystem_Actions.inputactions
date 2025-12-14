@@ -104,6 +104,60 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat F1 Instructions",
+                    "type": "Button",
+                    "id": "dba88f76-4c8f-42b5-a5a7-d6a8a7fac744",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat Invincibility",
+                    "type": "Button",
+                    "id": "dad67d2e-b3a4-4ff8-8b03-817e58dfe651",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat Speed Multiplier",
+                    "type": "Button",
+                    "id": "f7a92450-5161-4a74-a2ce-f8d732dcc630",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat Skip Wave",
+                    "type": "Button",
+                    "id": "070494ce-7fa9-40a1-85cb-374e1bf4df49",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat Fire Rate Boost",
+                    "type": "Button",
+                    "id": "76861c66-93c9-4353-8605-90b1c3e3fb72",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat Heal to Max Health",
+                    "type": "Button",
+                    "id": "94ff7a71-f225-438d-8e83-2be24402c907",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -577,6 +631,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "903890ef-f5fd-4acf-ab44-fa404c2e50aa",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat F1 Instructions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6db507da-3d6f-4642-b877-df395c1195b3",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat Invincibility",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e6dc4477-ab99-4367-95d9-47f9fae01248",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat Speed Multiplier",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c84180a-890a-4d7f-912a-f7851d6ae2d9",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat Skip Wave",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89c5e9f4-84c6-4a87-ab84-04730febd3cb",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat Fire Rate Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d02149f0-a89e-41ba-a468-d46118f4312b",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat Heal to Max Health",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

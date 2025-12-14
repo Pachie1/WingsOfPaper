@@ -1,141 +1,121 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class CheatManager : MonoBehaviour
 {
-    [Header("Component References")]
+    [Header("References")]
     [SerializeField] private Player player;
     [SerializeField] private InputReader inputReader;
     [SerializeField] private EnemyManager enemyManager;
+
+    [Header("Input Actions")]
+    [SerializeField] private InputActionReference invincibleAction;
+    [SerializeField] private InputActionReference speedAction;
+    [SerializeField] private InputActionReference killAllAction;
+    [SerializeField] private InputActionReference fireRateAction;
+    [SerializeField] private InputActionReference healAction;
 
     [Header("Cheat Settings")]
     [SerializeField] private float speedMultiplier = 3f;
     [SerializeField] private float fireRateDivisor = 3f;
 
-    private bool invincibleToggle = false;
-    private bool speedToggle = false;
-    private bool fireRateToggle = false;
+    private bool invincibleToggle;
+    private bool speedToggle;
+    private bool fireRateToggle;
 
-    private float defaultSpeed = 0f;
-    private float defaultFiringRate = 0f;
-
-    void Start()
+    private float defaultSpeed;
+    private float defaultFiringRate;
+    private void OnEnable()
     {
-        if (inputReader != null)
-        {
-            defaultSpeed = inputReader.GetDefaultSpeed();
-            defaultFiringRate = inputReader.GetDefaultFiringRate();
-        }
+        if (invincibleAction != null) invincibleAction.action.performed += OnInvincible;
+        if (speedAction != null) speedAction.action.performed += OnSpeed;
+        if (killAllAction != null) killAllAction.action.performed += OnKillAll;
+        if (fireRateAction != null) fireRateAction.action.performed += OnFireRate;
+        if (healAction != null) healAction.action.performed += OnHeal;
+
+        EnableActions(true);
     }
-
-    void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            ToggleInvincible();
-        }
+        if (invincibleAction != null) invincibleAction.action.performed -= OnInvincible;
+        if (speedAction != null) speedAction.action.performed -= OnSpeed;
+        if (killAllAction != null) killAllAction.action.performed -= OnKillAll;
+        if (fireRateAction != null) fireRateAction.action.performed -= OnFireRate;
+        if (healAction != null) healAction.action.performed -= OnHeal;
 
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            ToggleSpeed();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F4))
-        {
-            KillAllEnemies();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            ToggleFireRate();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F6))
-        {
-            HealPlayer();
-        }
+        EnableActions(false);
     }
-
-    private void ToggleInvincible()
+    private void Start()
     {
+        CacheDefaults();
+    }
+    private void EnableActions(bool enable)
+    {
+        if (invincibleAction != null) SetAction(invincibleAction, enable);
+        if (speedAction != null) SetAction(speedAction, enable);
+        if (killAllAction != null) SetAction(killAllAction, enable);
+        if (fireRateAction != null) SetAction(fireRateAction, enable);
+        if (healAction != null) SetAction(healAction, enable);
+    }
+    private void SetAction(InputActionReference actionRef, bool enable)
+    {
+        if (enable) actionRef.action.Enable();
+        else actionRef.action.Disable();
+    }
+    private void CacheDefaults()
+    {
+        if (inputReader == null) return;
+
+        defaultSpeed = inputReader.GetDefaultSpeed();
+        defaultFiringRate = inputReader.GetDefaultFiringRate();
+    }
+    private void OnInvincible(InputAction.CallbackContext _)
+    {
+        if (player == null) return;
+
         invincibleToggle = !invincibleToggle;
-
-        if (player != null)
-        {
-            player.isInvincible = invincibleToggle;
-            Debug.Log("Cheat: Invincibility " + (invincibleToggle ? "ACTIVATED (F2)" : "DEACTIVATED (F2)"));
-        }
+        player.isInvincible = invincibleToggle;
     }
-
-    private void ToggleSpeed()
+    private void OnSpeed(InputAction.CallbackContext _)
     {
+        if (inputReader == null) return;
+
+        if (!speedToggle && defaultSpeed <= 0f)
+            CacheDefaults();
+
         speedToggle = !speedToggle;
 
-        if (inputReader == null)
-        {
-            Debug.LogError("InputReader reference missing.");
-            return;
-        }
+        float newSpeed = speedToggle
+            ? defaultSpeed * speedMultiplier
+            : defaultSpeed;
 
-        if (speedToggle)
-        {
-            inputReader.SetCurrentSpeed(defaultSpeed * speedMultiplier);
-        }
-        else
-        {
-            inputReader.SetCurrentSpeed(defaultSpeed);
-        }
-        Debug.Log("Cheat: Speed " + (speedToggle ? "ACTIVATED (F3)" : "DEACTIVATED (F3)"));
+        inputReader.SetCurrentSpeed(newSpeed);
     }
-
-    private void KillAllEnemies()
+    private void OnKillAll(InputAction.CallbackContext _)
     {
-        if (enemyManager != null)
-        {
-            enemyManager.ForceNextWave();
-            Debug.Log("Cheat: Kill All Enemies (F4) executed. Starting next wave.");
-        }
-        else
-        {
-            Debug.LogError("EnemyManager reference missing. Cannot kill all enemies.");
-        }
+        if (enemyManager == null) return;
+
+        enemyManager.ForceNextWave();
     }
-
-    private void ToggleFireRate()
+    private void OnFireRate(InputAction.CallbackContext _)
     {
+        if (inputReader == null) return;
+
+        if (!fireRateToggle && defaultFiringRate <= 0f)
+            CacheDefaults();
+
         fireRateToggle = !fireRateToggle;
 
-        if (inputReader == null)
-        {
-            Debug.LogError("InputReader reference missing.");
-            return;
-        }
-
-        float newRate;
-        if (fireRateToggle)
-        {
-            newRate = defaultFiringRate / fireRateDivisor;
-        }
-        else
-        {
-            newRate = defaultFiringRate;
-        }
+        float newRate = fireRateToggle
+            ? defaultFiringRate / fireRateDivisor
+            : defaultFiringRate;
 
         inputReader.SetCurrentFiringRate(newRate);
-
-        Debug.Log("Cheat: Fire Rate Boost " + (fireRateToggle ? "ACTIVATED x" + fireRateDivisor + " (F5)" : "DEACTIVATED x1 (F5)"));
     }
-
-    private void HealPlayer()
+    private void OnHeal(InputAction.CallbackContext _)
     {
-        if (player != null)
-        {
-            player.HitPoints = player.maxHitPoints;
-            Debug.Log("Cheat: Health restored to max (" + player.HitPoints + ") (F6).");
-        }
-        else
-        {
-            Debug.LogError("Player is not assigned. Cannot heal player.");
-        }
+        if (player == null) return;
+
+        player.HitPoints = player.maxHitPoints;
     }
 }
