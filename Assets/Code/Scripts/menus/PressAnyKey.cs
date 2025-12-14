@@ -6,6 +6,9 @@ public class PressAnyKey : MonoBehaviour
     [SerializeField] private InputActionReference startAction;
     [SerializeField] private GameObject MainMenu;
 
+    [SerializeField] private GameObject MenuManager;
+    [SerializeField] private GameObject MainMenuHighLightedElement;
+
     void OnEnable()
     {
         if (startAction != null && startAction.action != null)
@@ -32,5 +35,7 @@ public class PressAnyKey : MonoBehaviour
         MainMenu.SetActive(true);
         gameObject.SetActive(false);
         enabled = false;
+
+        MenuManager.GetComponent<MenuManager>().HighLightElement(MainMenuHighLightedElement);
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class MenuManager : MonoBehaviour
     {   
         light.intensity = brightnessSlider.GetComponent<Slider>().value;
     }
+
     public void ToggleFullScreen() 
     {
         if (Screen.fullScreen)
@@ -39,12 +41,6 @@ public class MenuManager : MonoBehaviour
         {
             Screen.fullScreen = true;
         }
-    }
-
-    public void Unpause()
-    {
-        pauseController = GameManager.GetComponent<PauseController>();
-        pauseController.ChangeGameState();
     }
 
     public void CloseOptionsMenu()
@@ -64,5 +60,10 @@ public class MenuManager : MonoBehaviour
     {
         currentMenu= menu;
         Debug.Log("currentMenu: " + currentMenu);
+    }
+
+    public void HighLightElement(GameObject element)
+    {
+        EventSystem.current.SetSelectedGameObject(element);
     }
 }
