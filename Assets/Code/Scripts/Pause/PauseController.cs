@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
-using static UnityEditor.Rendering.FilterWindow;
 using UnityEditor;
-using JetBrains.Rider.Unity.Editor;
+/*using static UnityEditor.Rendering.FilterWindow;
+using JetBrains.Rider.Unity.Editor;*/
 
 public class PauseController : MonoBehaviour
 {
