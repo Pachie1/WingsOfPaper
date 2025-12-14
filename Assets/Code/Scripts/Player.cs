@@ -3,14 +3,18 @@ using UnityEngine.Pool;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player Settings")]
     private Animator animator;
     [SerializeField] public string Enemytag;
     [SerializeField] public int HitPoints;
     [SerializeField] public int maxHitPoints;
 
     public bool isInvincible = false;
-
+    [Header("Audio")]
     private PlayerAudio playerAudio;
+
+    [Header("Menu")]
+    [SerializeField] private GameObject menuManager;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
             playerAudio.PlayDeath();
 
         Destroy(GetComponent<BoxCollider2D>());
+        menuManager.GetComponent<MenuManager>().OpenResetMenu();
     }
     private void OnDeadAnimation()
     {

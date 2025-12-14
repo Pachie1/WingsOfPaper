@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class LightGame : MonoBehaviour
-
-
 {
     public Light2D light2D;
     public float speed = 3f;
@@ -16,7 +14,7 @@ public class LightGame : MonoBehaviour
 
     void Update()
     {
-        GetComponent<Light2D>().intensity = Mathf.Lerp(
+       GetComponent<Light2D>().intensity = Mathf.Lerp(
        intensityMax, intensityMin,
        Mathf.PingPong(Time.time * speed, 2)
       );

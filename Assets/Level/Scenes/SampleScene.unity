@@ -332,13 +332,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 709892755}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -348,9 +348,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -4073670948696359254, guid: 7ae00d59e67387345a5d5c1d3e696843, type: 3}
+    m_PressedSprite: {fileID: -419305852882280020, guid: e5bf4180f28694b42af81aa98457e242, type: 3}
+    m_SelectedSprite: {fileID: -4073670948696359254, guid: 7ae00d59e67387345a5d5c1d3e696843, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5134,6 +5134,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -3530542103482245617, guid: 4c859a098bf6f1248afbdb1510e591e3, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 1963760184}
+    - target: {fileID: -3530542103482245617, guid: 4c859a098bf6f1248afbdb1510e591e3, type: 3}
       propertyPath: maxHitPoints
       value: 4
       objectReference: {fileID: 0}
@@ -7028,13 +7032,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 17666845}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7044,9 +7048,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -4073670948696359254, guid: 7ae00d59e67387345a5d5c1d3e696843, type: 3}
+    m_PressedSprite: {fileID: -419305852882280020, guid: e5bf4180f28694b42af81aa98457e242, type: 3}
+    m_SelectedSprite: {fileID: -4073670948696359254, guid: 7ae00d59e67387345a5d5c1d3e696843, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -11578,9 +11582,7 @@ MonoBehaviour:
   levelManager: {fileID: 455249406}
   level:
     scenes: []
-  Player: {fileID: 1427539060}
-  playerTag: Player
-  ResetCanvas: {fileID: 127849825}
+  menuManager: {fileID: 1963760184}
 --- !u!4 &1545847031
 Transform:
   m_ObjectHideFlags: 0
@@ -14726,6 +14728,8 @@ MonoBehaviour:
   GameManager: {fileID: 1545847029}
   optionsMenu: {fileID: 390928935}
   pauseMenu: {fileID: 286894469}
+  resetMenu: {fileID: 127849825}
+  resetMenuHightlighted: {fileID: 709892752}
   currentMenu: {fileID: 286894469}
   globalLight2D: {fileID: 619394800}
   brightnessSlider: {fileID: 707536355428235288}

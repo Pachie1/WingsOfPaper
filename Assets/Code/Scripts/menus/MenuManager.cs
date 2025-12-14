@@ -8,10 +8,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject GameManager;
     private PauseController pauseController;
 
+    [Header("Menus")]
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject resetMenu;
+    [SerializeField] private GameObject resetMenuHightlighted;
     [SerializeField] public GameObject currentMenu;
 
+    [Header("Light")]
     [SerializeField] private GameObject globalLight2D;
     [SerializeField] private GameObject brightnessSlider;
     private Light2D light;
@@ -60,6 +64,12 @@ public class MenuManager : MonoBehaviour
     {
         currentMenu= menu;
         Debug.Log("currentMenu: " + currentMenu);
+    }
+
+    public void OpenResetMenu()
+    {
+        resetMenu.SetActive(true);
+        HighLightElement(resetMenuHightlighted);
     }
 
     public void HighLightElement(GameObject element)

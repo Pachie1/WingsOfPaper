@@ -33,12 +33,18 @@ public class PauseController : MonoBehaviour
     }
     void OnEnable()
     {
-        pauseAction.action.started += HandlePauseInput;
+        if (pauseAction != null && pauseAction.action != null)
+        {
+            pauseAction.action.started += HandlePauseInput;
+        }
     }
 
     void OnDisable()
     {
-        pauseAction.action.started -= HandlePauseInput;
+        if (pauseAction != null && pauseAction.action != null)
+        {
+            pauseAction.action.started -= HandlePauseInput;
+        }
     }
 
     private void HandlePauseInput(InputAction.CallbackContext context)

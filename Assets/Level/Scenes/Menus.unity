@@ -4647,10 +4647,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManager: {fileID: 1252628364}
   optionsMenu: {fileID: 8673776267246161044}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1501175417}
+  resetMenu: {fileID: 1501175417}
   currentMenu: {fileID: 1501175417}
   globalLight2D: {fileID: 2059745303}
-  brightnessSlider: {fileID: 5956174875668854187}
+  brightnessSlider: {fileID: 6170631978777376227}
 --- !u!4 &774000093
 Transform:
   m_ObjectHideFlags: 0
@@ -6138,9 +6139,7 @@ MonoBehaviour:
   levelManager: {fileID: 487698529}
   level:
     scenes: []
-  Player: {fileID: 0}
-  playerTag: Player
-  ResetCanvas: {fileID: 287985868}
+  menuManager: {fileID: 774000091}
 --- !u!4 &1252628366
 Transform:
   m_ObjectHideFlags: 0
