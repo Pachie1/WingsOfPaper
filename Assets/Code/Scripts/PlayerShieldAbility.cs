@@ -16,6 +16,7 @@ public class PlayerShieldAbility : MonoBehaviour
     [SerializeField] private Image shieldIcon;
     [SerializeField] private Sprite availableSprite;
     [SerializeField] private Sprite cooldownSprite;
+    [SerializeField] private PlayerAudio playerAudio;
 
     private float cooldownRemaining;
     private float invincibleRemaining;
@@ -73,6 +74,7 @@ public class PlayerShieldAbility : MonoBehaviour
         shieldActive = true;
         invincibleRemaining = invincibleSeconds;
         player.isInvincible = true;
+        if (playerAudio != null) playerAudio.PlayShield();
 
         cooldownRemaining = cooldownSeconds;
 
