@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     {
         foreach(string scene in level.scenes)
         {
-            SceneManager.LoadScene(scene);
+            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
         
     }

@@ -8,6 +8,7 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - GameStateManagerTag
+  - GlobalLight
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,7 @@ public class CheatManager : MonoBehaviour
 
     private float defaultSpeed;
     private float defaultFiringRate;
+
     private void OnEnable()
     {
         if (invincibleAction != null) invincibleAction.action.performed += OnInvincible;
@@ -35,6 +36,7 @@ public class CheatManager : MonoBehaviour
 
         EnableActions(true);
     }
+
     private void OnDisable()
     {
         if (invincibleAction != null) invincibleAction.action.performed -= OnInvincible;
@@ -45,10 +47,12 @@ public class CheatManager : MonoBehaviour
 
         EnableActions(false);
     }
+
     private void Start()
     {
         CacheDefaults();
     }
+
     private void EnableActions(bool enable)
     {
         if (invincibleAction != null) SetAction(invincibleAction, enable);
@@ -57,11 +61,13 @@ public class CheatManager : MonoBehaviour
         if (fireRateAction != null) SetAction(fireRateAction, enable);
         if (healAction != null) SetAction(healAction, enable);
     }
+
     private void SetAction(InputActionReference actionRef, bool enable)
     {
         if (enable) actionRef.action.Enable();
         else actionRef.action.Disable();
     }
+
     private void CacheDefaults()
     {
         if (inputReader == null) return;
@@ -69,6 +75,7 @@ public class CheatManager : MonoBehaviour
         defaultSpeed = inputReader.GetDefaultSpeed();
         defaultFiringRate = inputReader.GetDefaultFiringRate();
     }
+
     private void OnInvincible(InputAction.CallbackContext _)
     {
         if (player == null) return;
@@ -76,6 +83,7 @@ public class CheatManager : MonoBehaviour
         invincibleToggle = !invincibleToggle;
         player.isInvincible = invincibleToggle;
     }
+
     private void OnSpeed(InputAction.CallbackContext _)
     {
         if (inputReader == null) return;
@@ -91,12 +99,14 @@ public class CheatManager : MonoBehaviour
 
         inputReader.SetCurrentSpeed(newSpeed);
     }
+
     private void OnKillAll(InputAction.CallbackContext _)
     {
         if (enemyManager == null) return;
 
         enemyManager.ForceNextWave();
     }
+
     private void OnFireRate(InputAction.CallbackContext _)
     {
         if (inputReader == null) return;
@@ -112,6 +122,7 @@ public class CheatManager : MonoBehaviour
 
         inputReader.SetCurrentFiringRate(newRate);
     }
+
     private void OnHeal(InputAction.CallbackContext _)
     {
         if (player == null) return;

@@ -4648,11 +4648,22 @@ MonoBehaviour:
   GameManager: {fileID: 1252628364}
   optionsMenu: {fileID: 8673776267246161044}
   pauseMenu: {fileID: 1501175417}
+  audioMenu: {fileID: 0}
+  videoMenu: {fileID: 0}
+  controlMenu: {fileID: 0}
   resetMenu: {fileID: 1501175417}
-  resetMenuHightlighted: {fileID: 0}
+  cheatMenu: {fileID: 0}
   currentMenu: {fileID: 1501175417}
-  globalLight2D: {fileID: 2059745303}
+  resetMenuHightlighted: {fileID: 0}
+  pauseMenuHighlighted: {fileID: 0}
+  audioMenuHighlighted: {fileID: 0}
+  videoMenuHighlighted: {fileID: 0}
+  controlMenuHighlighted: {fileID: 0}
+  cheatMenuHighlighted: {fileID: 0}
+  globalLight2D: {fileID: 0}
   brightnessSlider: {fileID: 6170631978777376227}
+  pauseAction: {fileID: 0}
+  cheatAction: {fileID: 0}
 --- !u!4 &774000093
 Transform:
   m_ObjectHideFlags: 0
