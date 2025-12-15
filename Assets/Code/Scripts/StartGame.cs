@@ -14,10 +14,12 @@ public class StartGame : MonoBehaviour
     {
         Time.timeScale = 0f;
     }
+
     void Update()
     {
         if (enterAction.action.IsPressed())
         {
+            Debug.Log("Action Pressed");
             Time.timeScale = 1f;
             canvas.SetActive(false);
         } 

@@ -17,7 +17,6 @@ public class GameStateManager : MonoBehaviour
                 _instance = gameStateObject.AddComponent<GameStateManager>();
                 _instance.gameObject.tag = "GameStateManagerTag";
             }
-
             return _instance;
         }
     }

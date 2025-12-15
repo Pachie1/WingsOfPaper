@@ -28,6 +28,33 @@ public class PressAnyKey : MonoBehaviour
     }
     void Update()
     {
+        if (startAction != null) 
+        {
+            Debug.Log("startAction != null: " + true);
+        }
+        else
+        {
+            Debug.Log("startAction != null: " + false);
+        }
+
+        if (startAction.action != null)
+        {
+            Debug.Log("startAction.action != null: " + true);
+        }
+        else
+        {
+            Debug.Log("startAction.action != null: " + false);
+        }
+
+        if (startAction.action.WasPressedThisFrame())
+        {
+            Debug.Log("startAction != null: " + true);
+        }
+        else
+        {
+            Debug.Log("startAction != null: " + false);
+        }
+
         if (startAction != null && startAction.action != null && startAction.action.WasPressedThisFrame())
         {
             StartGame();
