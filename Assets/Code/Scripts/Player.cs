@@ -1,68 +1,75 @@
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class Player : MonoBehaviour
 {
     [Header("Player Settings")]
-    private Animator animator;
     [SerializeField] public string Enemytag;
     [SerializeField] public int HitPoints;
     [SerializeField] public int maxHitPoints;
 
     public bool isInvincible = false;
-    [Header("Audio")]
-    private PlayerAudio playerAudio;
 
     [Header("Menu")]
     [SerializeField] private GameObject menuManager;
+
+    private Animator animator;
+    private PlayerAudio playerAudio;
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerAudio = GetComponent<PlayerAudio>();
     }
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(Enemytag))
-        {
-            Bullet bullet = other.GetComponent<Bullet>();
+        if (!other.CompareTag(Enemytag)) return;
 
-            if (bullet)
-            {
-                Destroy(other.gameObject);
-                takeDamage(bullet.damage);
-            }
-        }
+        Bullet bullet = other.GetComponent<Bullet>();
+        if (bullet == null) return;
+
+        Destroy(other.gameObject);
+        TakeDamage(bullet.damage);
     }
-    private void takeDamage(int x)
+    private void TakeDamage(int damage)
     {
-        if (isInvincible)
-        {
-            return;
-        }
+        if (isInvincible) return;
+        if (damage <= 0) return;
 
-        animator.SetTrigger("OnHit");
+        if (animator != null) animator.SetTrigger("OnHit");
+        if (playerAudio != null) playerAudio.PlayHit();
 
-        if (playerAudio != null)
-            playerAudio.PlayHit();
+        HitPoints -= damage;
 
-        HitPoints -= x;
         if (HitPoints <= 0)
         {
+            HitPoints = 0;
             Die();
         }
     }
     private void Die()
     {
-        animator.SetTrigger("Dead");
+        if (animator != null) animator.SetTrigger("Dead");
+        if (playerAudio != null) playerAudio.PlayDeath();
 
-        if (playerAudio != null)
-            playerAudio.PlayDeath();
+        BoxCollider2D col = GetComponent<BoxCollider2D>();
+        if (col != null) Destroy(col);
 
-        Destroy(GetComponent<BoxCollider2D>());
-        menuManager.GetComponent<MenuManager>().OpenResetMenu();
+        if (menuManager != null)
+        {
+            MenuManager mm = menuManager.GetComponent<MenuManager>();
+            if (mm != null) mm.OpenResetMenu();
+        }
     }
     private void OnDeadAnimation()
     {
         Destroy(gameObject, 0f);
+    }
+    public bool TryHeal(int amount)
+    {
+        if (amount <= 0) return false;
+        if (HitPoints <= 0) return false;
+        if (HitPoints >= maxHitPoints) return false;
+
+        HitPoints = Mathf.Min(HitPoints + amount, maxHitPoints);
+        return true;
     }
 }

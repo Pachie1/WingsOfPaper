@@ -7,6 +7,7 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField] private AudioClip shootClip;
     [SerializeField] private AudioClip hitClip;
     [SerializeField] private AudioClip deathClip;
+    [SerializeField] private AudioClip healClip;
 
     [SerializeField] private float minPitch = 0.95f;
     [SerializeField] private float maxPitch = 1.05f;
@@ -38,5 +39,9 @@ public class PlayerAudio : MonoBehaviour
     public void PlayDeath()
     {
         PlayClip(deathClip);
+    }
+    public void PlayHeal()
+    {
+        PlayClip(healClip);
     }
 }
