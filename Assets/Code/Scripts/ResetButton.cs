@@ -17,8 +17,7 @@ public class ResetButton : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Level level;
 
-    [SerializeField] private GameObject menuManager;
-    [SerializeField] private MenuManager menuManager_Obj;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,8 +30,6 @@ public class ResetButton : MonoBehaviour
     void ResumeScene()
     {
         pauseMenu.SetActive(false);
-        menuManager_Obj = menuManager.GetComponent<MenuManager>();
-        //menuManager_Obj.ChangeGameState();
     }
     void ResetScene()
     {

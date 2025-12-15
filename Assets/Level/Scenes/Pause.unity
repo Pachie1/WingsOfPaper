@@ -1021,7 +1021,7 @@ MonoBehaviour:
   videoMenuHighlighted: {fileID: 6108078293560112809}
   controlMenuHighlighted: {fileID: 8992280713308347955}
   resetMenuHightlighted: {fileID: 2249402382735225707}
-  cheatMenuHighlighted: {fileID: 0}
+  cheatMenuHighlighted: {fileID: 2249402382735225707}
   brightnessSlider: {fileID: 1005713116098515892}
   pauseAction: {fileID: 2127574436734773471, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   cheatAction: {fileID: -2804951487397129503, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
@@ -10693,28 +10693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c6f0c755e4ad348977dc275909a279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7242945262149432394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7756502265162680551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edab6d85b87332439c88276aa2f7c6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 8687009995328533929}
-  buttonResume: {fileID: 8852455739746434457}
-  buttonReset: {fileID: 3140077163581324138}
-  buttonExit: {fileID: 5055521666559470440}
-  gameManager: {fileID: 0}
-  level:
-    scenes:
-    - SampleScene
-  menuManager: {fileID: 0}
-  menuManager_Obj: {fileID: 0}
 --- !u!114 &7263892001096259976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11218,28 +11196,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7681738755646871057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8687009995328533929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edab6d85b87332439c88276aa2f7c6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 8687009995328533929}
-  buttonResume: {fileID: 8852455739746434457}
-  buttonReset: {fileID: 832984453984257090}
-  buttonExit: {fileID: 6216985868703525385}
-  gameManager: {fileID: 0}
-  level:
-    scenes:
-    - SampleScene
-  menuManager: {fileID: 0}
-  menuManager_Obj: {fileID: 0}
 --- !u!1 &7687332127893172946
 GameObject:
   m_ObjectHideFlags: 0
@@ -11275,7 +11231,6 @@ GameObject:
   - component: {fileID: 3242067785298802448}
   - component: {fileID: 6438697337366738804}
   - component: {fileID: 4681966589873452952}
-  - component: {fileID: 7242945262149432394}
   m_Layer: 5
   m_Name: Reset
   m_TagString: Untagged
@@ -11964,7 +11919,6 @@ GameObject:
   - component: {fileID: 2211008335282096552}
   - component: {fileID: 4380131783473747347}
   - component: {fileID: 5552081607723033696}
-  - component: {fileID: 7681738755646871057}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged

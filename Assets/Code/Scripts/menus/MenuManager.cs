@@ -47,120 +47,8 @@ public class MenuManager : MonoBehaviour
     private GameObject player;
     private bool cheatInput = false;
     private bool pauseInput = false;
-    /*
-    void OnEnable()
-    {
-        if (cheatAction != null && cheatAction.action != null)
-        {
-            cheatAction.action.started += HandleCheatAction;
-        }
+    private bool resetHightlightedFlag = false;
 
-        if (pauseAction != null && pauseAction.action != null)
-        {
-            pauseAction.action.started += HandlePauseInput;
-        }
-    }
-
-    void OnDisable()
-    {
-        if (cheatAction != null && cheatAction.action != null)
-        {
-            cheatAction.action.started -= HandleCheatAction;
-        }
-
-        if (pauseAction != null && pauseAction.action != null)
-        {
-            pauseAction.action.started -= HandlePauseInput;
-        }
-    }
-
-    private void HandleCheatAction(InputAction.CallbackContext context)
-    {
-        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-        cheatInput = true;
-        currentMenu = cheatMenu;
-        TriggerGameState(currentGameState);
-
-    }
-
-    private void HandlePauseInput(InputAction.CallbackContext context)
-    {
-        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-        pauseInput = true;
-        TriggerGameState(currentGameState);
-    }
-    
-    private void TriggerGameState(GameState currentGameState)
-    {
-        Debug.Log("inicio currentGameState: " + currentGameState);
-        GameState newGameState;
-
-        if (currentGameState == GameState.Gameplay)
-        {
-            newGameState = GameState.Pause;
-            if (pauseInput == true) 
-            {
-                pauseMenu.SetActive(true);
-                HighLightElement(pauseMenuHighlighted);
-
-                cheatMenu.SetActive(false);
-                
-                pauseInput = false;
-            }
-            
-            if (cheatInput == true)
-            {
-                pauseMenu.SetActive(false);
-
-                cheatMenu.SetActive(true);
-                HighLightElement(cheatMenuHighlighted);
-                
-                cheatInput = false;
-            } 
-        }
-        else
-        {
-            Debug.Log("currentMenu: " + currentMenu);
-            //If its not in the pauseMenu and neither in the optionsMenu. it means that its in audio/video/controls so it must go back to the options menu
-            if (currentMenu != pauseMenu && currentMenu != optionsMenu && currentMenu != cheatMenu)
-            {
-                Debug.Log("backToOptionsMenu");
-                if (currentMenu == audioMenu)
-                {
-                    HighLightElement(audioMenuHighlighted);
-                }
-
-                if (currentMenu == videoMenu)
-                {
-                    HighLightElement(videoMenuHighlighted);
-                }
-
-                if (currentMenu == controlMenu)
-                {
-                    HighLightElement(controlMenuHighlighted);
-                }
-                BackToOptionsMenu();
-                currentMenu = optionsMenu;
-            }
-            else
-            {
-                //If its not in the pauseMenu. It means that its in options menu so it must go back to the pause menu
-                if (currentMenu != pauseMenu && currentMenu != cheatMenu)
-                {
-                    Debug.Log("closeOptionsMenu");
-                    CloseOptionsMenu();
-                    currentMenu = pauseMenu;
-                    HighLightElement(pauseMenuHighlighted);
-                }
-                else
-                {
-                    pauseMenu.SetActive(false);
-                    cheatMenu.SetActive(false);
-                }
-            }
-        }
-    }
-    */
     private void Awake()
     {
         globalLight2D = GameObject.FindGameObjectWithTag("GlobalLight");
@@ -222,9 +110,10 @@ public class MenuManager : MonoBehaviour
             {
                 resetMenu.SetActive(true);
             }
-            if (resetMenuHightlighted != null)
+            if (resetMenuHightlighted != null && resetHightlightedFlag == false)
             {
                 HighLightElement(resetMenuHightlighted);
+                resetHightlightedFlag = true;
             }
         }
     }
@@ -276,7 +165,11 @@ public class MenuManager : MonoBehaviour
 
     public void ResetGameplay()
     {
-        gameManagerComp.UnLoadSceneAndLoadScene(Pause, Gameplay);
+        Debug.Log("RESET");
+        gameManagerComp.UnLoadScene(Gameplay);
+        gameManagerComp.UnLoadScene(Pause);
+        gameManagerComp.LoadScene(Gameplay);
+        //gameManagerComp.UnLoadSceneAndLoadScene(Pause, Gameplay);
     }
 
     public void BachToMenu()
