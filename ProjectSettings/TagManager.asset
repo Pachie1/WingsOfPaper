@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - GameStateManagerTag
   - GlobalLight
+  - GameManager
   layers:
   - Default
   - TransparentFX

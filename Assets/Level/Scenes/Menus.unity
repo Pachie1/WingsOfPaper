@@ -4660,7 +4660,6 @@ MonoBehaviour:
   videoMenuHighlighted: {fileID: 0}
   controlMenuHighlighted: {fileID: 0}
   cheatMenuHighlighted: {fileID: 0}
-  globalLight2D: {fileID: 0}
   brightnessSlider: {fileID: 6170631978777376227}
   pauseAction: {fileID: 0}
   cheatAction: {fileID: 0}
@@ -10009,7 +10008,7 @@ GameObject:
   - component: {fileID: 2059745304}
   m_Layer: 0
   m_Name: Global Light 2D
-  m_TagString: Untagged
+  m_TagString: GlobalLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12034,9 +12033,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6915932106985779987}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 3
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

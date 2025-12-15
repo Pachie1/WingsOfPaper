@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject GameManager;
 
     [Header("Menus")]
     [SerializeField] private GameObject optionsMenu;
@@ -27,16 +26,20 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject cheatMenuHighlighted;
 
     [Header("Light")]
-    [SerializeField] private GameObject globalLight2D;
     [SerializeField] private GameObject brightnessSlider;
+    private GameObject globalLight2D;
     private Light2D light;
 
     [Header("Actions")]
     [SerializeField] private InputActionReference pauseAction;
     [SerializeField] private InputActionReference cheatAction;
 
+    private GameObject gameManager;
+    private PauseController pauseControllerComp;
+    private GameObject player;
     private bool cheatInput = false;
     private bool pauseInput = false;
+    /*
     void OnEnable()
     {
         if (cheatAction != null && cheatAction.action != null)
@@ -78,13 +81,7 @@ public class MenuManager : MonoBehaviour
         pauseInput = true;
         TriggerGameState(currentGameState);
     }
-
-    public void ChangeGameState()
-    {
-        GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-
-        TriggerGameState(currentGameState);
-    }
+    
     private void TriggerGameState(GameState currentGameState)
     {
         Debug.Log("inicio currentGameState: " + currentGameState);
@@ -112,8 +109,6 @@ public class MenuManager : MonoBehaviour
                 
                 cheatInput = false;
             } 
-            
-            GameStateManager.Instance.SetState(newGameState);
         }
         else
         {
@@ -151,27 +146,31 @@ public class MenuManager : MonoBehaviour
                 }
                 else
                 {
-                    newGameState = GameState.Gameplay;
                     pauseMenu.SetActive(false);
                     cheatMenu.SetActive(false);
-                    GameStateManager.Instance.SetState(newGameState);
-                    Debug.Log("newGameState: " + newGameState);
                 }
             }
         }
     }
-
+    */
     private void Awake()
     {
+        globalLight2D = GameObject.FindGameObjectWithTag("GlobalLight");
         light = globalLight2D.GetComponent<Light2D>();
     }
     private void Start()
     {
-        Debug.Log("currentMenu: " + currentMenu);
+        pauseMenu.SetActive(true);
+        HighLightElement(pauseMenuHighlighted);
         brightnessSlider.GetComponent<Slider>().value = light.intensity;
 
-
-        pauseMenu.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player) 
+        {
+            pauseMenu.SetActive(false);
+            resetMenu.SetActive(true);
+            HighLightElement(resetMenuHightlighted);
+        } 
     }
 
     private void Update()
@@ -219,5 +218,12 @@ public class MenuManager : MonoBehaviour
     public void HighLightElement(GameObject element)
     {
         EventSystem.current.SetSelectedGameObject(element);
+    }
+
+    public void Unpause() 
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        pauseControllerComp = gameManager.GetComponent<PauseController>();
+        pauseControllerComp.ChangeGameState();
     }
 }

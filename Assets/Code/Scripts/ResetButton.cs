@@ -32,7 +32,7 @@ public class ResetButton : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         menuManager_Obj = menuManager.GetComponent<MenuManager>();
-        menuManager_Obj.ChangeGameState();
+        //menuManager_Obj.ChangeGameState();
     }
     void ResetScene()
     {
@@ -42,6 +42,6 @@ public class ResetButton : MonoBehaviour
 
     void ExitScene()
     {
-        gameManager.LoadScene(level);
+        gameManager.UnLoadScene(level);
     }
 }
