@@ -41,5 +41,12 @@ public class GameManager : MonoBehaviour
     {
         levelManager.UnLoadLevel(level);
     }
+
+    public void UnLoadSceneAndLoadScene(Level levelUnload,Level levelLoad)
+    {
+        levelManager.UnLoadLevel(levelUnload);
+
+        levelManager.LoadLevel(level);
+    }
 }
 

@@ -34,7 +34,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private InputActionReference pauseAction;
     [SerializeField] private InputActionReference cheatAction;
 
+    [Header("Scenes")]
+    [SerializeField] private Level Pause;
+    [SerializeField] private Level Gameplay;
+    [SerializeField] private Level Menu;
+
     private GameObject gameManager;
+    private GameManager gameManagerComp;
     private PauseController pauseControllerComp;
     private GameObject player;
     private bool cheatInput = false;
@@ -164,18 +170,19 @@ public class MenuManager : MonoBehaviour
         HighLightElement(pauseMenuHighlighted);
         brightnessSlider.GetComponent<Slider>().value = light.intensity;
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (!player) 
-        {
-            pauseMenu.SetActive(false);
-            resetMenu.SetActive(true);
-            HighLightElement(resetMenuHightlighted);
-        } 
+        
     }
 
     private void Update()
     {   
         light.intensity = brightnessSlider.GetComponent<Slider>().value;
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player)
+        {
+            pauseMenu.SetActive(false);
+            resetMenu.SetActive(true);
+            HighLightElement(resetMenuHightlighted);
+        }
     }
 
     public void ToggleFullScreen() 
@@ -191,8 +198,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void CloseOptionsMenu()
-    {
-        Debug.Log("CloseOptionsMenu"); 
+    { 
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(true);
     }
@@ -205,8 +211,7 @@ public class MenuManager : MonoBehaviour
 
     public void SetCurrentMenu(GameObject menu) 
     {
-        currentMenu= menu;
-        Debug.Log("currentMenu: " + currentMenu);
+        currentMenu = menu;
     }
 
     public void OpenResetMenu()
@@ -225,5 +230,19 @@ public class MenuManager : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         pauseControllerComp = gameManager.GetComponent<PauseController>();
         pauseControllerComp.ChangeGameState();
+    }
+
+    public void ResetGameplay()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManagerComp = gameManager.GetComponent<GameManager>();
+        gameManagerComp.UnLoadSceneAndLoadScene(Pause, Gameplay);
+    }
+
+    public void BachToMenu()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManagerComp = gameManager.GetComponent<GameManager>();
+        gameManagerComp.LoadScene(Menu);
     }
 }

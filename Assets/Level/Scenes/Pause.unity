@@ -1133,6 +1133,15 @@ MonoBehaviour:
   brightnessSlider: {fileID: 1005713116098515892}
   pauseAction: {fileID: 2127574436734773471, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   cheatAction: {fileID: -2804951487397129503, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  Pause:
+    scenes:
+    - Pause
+  Gameplay:
+    scenes:
+    - SampleScene
+  Menu:
+    scenes:
+    - Menus
 --- !u!114 &443082198564192291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,6 +1857,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7981260894852670400}
         m_TargetAssemblyTypeName: UIButtonSound, Assembly-CSharp
         m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 438792786984680126}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ResetGameplay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4645,7 +4666,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1655711787267498138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 438792786984680126}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ResetGameplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &3195548283352908568
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7515,7 +7548,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3313326360524887828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 438792786984680126}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: BachToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5059405208034339654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9261,6 +9306,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2828459645176202749}
         m_TargetAssemblyTypeName: UIButtonSound, Assembly-CSharp
         m_MethodName: PlayClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 438792786984680126}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: BachToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11690,6 +11747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8960717324659349694}
+  - component: {fileID: 8960717324659349695}
   m_Layer: 0
   m_Name: Menus
   m_TagString: Untagged
@@ -12595,6 +12653,19 @@ Transform:
   - {fileID: 1974535513823915766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8960717324659349695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944797691887354696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e314f7f04e255b47a0df4b165fb12df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuManager: {fileID: 0}
 --- !u!114 &8971414389271473803
 MonoBehaviour:
   m_ObjectHideFlags: 0

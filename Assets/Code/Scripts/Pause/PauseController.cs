@@ -76,12 +76,9 @@ public class PauseController : MonoBehaviour
         }
         else
         {
-            //if (pauseInput == true)
-            //{
-                newGameState = GameState.Gameplay;
-                GameStateManager.Instance.SetState(newGameState);
-                gameManagerComp.UnLoadScene(level);
-            //} 
+            newGameState = GameState.Gameplay;
+            GameStateManager.Instance.SetState(newGameState);
+            gameManagerComp.UnLoadScene(level); 
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
