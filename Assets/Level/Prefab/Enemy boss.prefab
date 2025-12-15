@@ -225,7 +225,7 @@ MonoBehaviour:
   bulletLife: 1
   speed: 4
   spawnerType: 1
-  firingRate: 1.5
+  firingRate: 2
   FirePoint: {fileID: 3506018208982104683}
 --- !u!114 &-4836637402779623067
 MonoBehaviour:
