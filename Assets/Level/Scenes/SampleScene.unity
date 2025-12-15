@@ -3123,6 +3123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6967292351236834629, guid: 91083eb95c5366c42a2211d7b930c1fb, type: 3}
+  prefabBoss: {fileID: 6967292351236834629, guid: 7fcc6d0c1424c3340ba586c6207f0502, type: 3}
 --- !u!4 &1158239239
 Transform:
   m_ObjectHideFlags: 0
@@ -3923,6 +3924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6967292351236834629, guid: 91083eb95c5366c42a2211d7b930c1fb, type: 3}
+  prefabBoss: {fileID: 6967292351236834629, guid: 7fcc6d0c1424c3340ba586c6207f0502, type: 3}
 --- !u!1 &1394098751
 GameObject:
   m_ObjectHideFlags: 0
@@ -5702,6 +5704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6967292351236834629, guid: 91083eb95c5366c42a2211d7b930c1fb, type: 3}
+  prefabBoss: {fileID: 6967292351236834629, guid: 7fcc6d0c1424c3340ba586c6207f0502, type: 3}
 --- !u!1 &1959988031
 GameObject:
   m_ObjectHideFlags: 0

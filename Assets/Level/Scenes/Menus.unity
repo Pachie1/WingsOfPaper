@@ -2401,9 +2401,9 @@ MonoBehaviour:
   uiSource: {fileID: 984660775}
   minPitch: 0.95
   maxPitch: 1.05
-  mainTheme: {fileID: 8300000, guid: 996882f0ed059f846b7e1736f0c47a88, type: 3}
+  mainTheme: {fileID: 8300000, guid: f0074ee2511352b4d954ab653725d1d4, type: 3}
   playMusicOnStart: 1
-  wave10Theme: {fileID: 0}
+  wave10Theme: {fileID: 8300000, guid: b20e08fdd1990eb49a80d2085525c2d1, type: 3}
   mainMixer: {fileID: 24100000, guid: 41389656af4ebbe43a1ac591bf4dc60d, type: 2}
   defaultClickClip: {fileID: 8300000, guid: 7e552de57c244e44aabf451cb9d20a5f, type: 3}
   defaultHoverClip: {fileID: 8300000, guid: 392dcbb049aebf547bfdc0497df846a2, type: 3}

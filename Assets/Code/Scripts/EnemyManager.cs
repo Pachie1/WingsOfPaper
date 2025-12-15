@@ -124,9 +124,9 @@ public class EnemyManager : MonoBehaviour
 
     void LoadWave10()
     {
-        enemySpawner1.Spawn(patrolPoints1_Wave10);
-        enemySpawner2.Spawn(patrolPoints2_Wave10);
-        enemySpawner3.Spawn(patrolPoints3_Wave10);
+        enemySpawner1.SpawnBoss(patrolPoints1_Wave10);
+        enemySpawner2.SpawnBoss(patrolPoints2_Wave10);
+        enemySpawner3.SpawnBoss(patrolPoints3_Wave10);
     }
 
     void ReturnToMenu()
