@@ -8,8 +8,9 @@ public class MenuManager : MonoBehaviour
 {
 
     [Header("Menus")]
-    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject audioMenu;
     [SerializeField] private GameObject videoMenu;
     [SerializeField] private GameObject controlMenu;
@@ -18,11 +19,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] public GameObject currentMenu;
 
     [Header("Highlighted")]
-    [SerializeField] private GameObject resetMenuHightlighted;
+    [SerializeField] private GameObject mainMenuHighlighted;
     [SerializeField] private GameObject pauseMenuHighlighted;
     [SerializeField] private GameObject audioMenuHighlighted;
     [SerializeField] private GameObject videoMenuHighlighted;
     [SerializeField] private GameObject controlMenuHighlighted;
+    [SerializeField] private GameObject resetMenuHightlighted;
     [SerializeField] private GameObject cheatMenuHighlighted;
 
     [Header("Light")]
@@ -163,14 +165,21 @@ public class MenuManager : MonoBehaviour
     {
         globalLight2D = GameObject.FindGameObjectWithTag("GlobalLight");
         light = globalLight2D.GetComponent<Light2D>();
+        DontDestroyOnLoad(globalLight2D);
     }
     private void Start()
     {
-        pauseMenu.SetActive(true);
-        HighLightElement(pauseMenuHighlighted);
-        brightnessSlider.GetComponent<Slider>().value = light.intensity;
-
+        if (mainMenu != null)
+        {
+            HighLightElement(mainMenuHighlighted); 
+        }
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+            HighLightElement(pauseMenuHighlighted);
+        }
         
+        brightnessSlider.GetComponent<Slider>().value = light.intensity;
     }
 
     private void Update()

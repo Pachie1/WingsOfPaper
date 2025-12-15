@@ -4645,24 +4645,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd810f12d67972c47b78a98fca432fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 1252628364}
+  mainMenu: {fileID: 1501175417}
+  pauseMenu: {fileID: 0}
   optionsMenu: {fileID: 8673776267246161044}
-  pauseMenu: {fileID: 1501175417}
-  audioMenu: {fileID: 0}
-  videoMenu: {fileID: 0}
-  controlMenu: {fileID: 0}
-  resetMenu: {fileID: 1501175417}
+  audioMenu: {fileID: 725135344}
+  videoMenu: {fileID: 267840695}
+  controlMenu: {fileID: 107659199}
+  resetMenu: {fileID: 0}
   cheatMenu: {fileID: 0}
   currentMenu: {fileID: 1501175417}
+  mainMenuHighlighted: {fileID: 1444019600}
+  pauseMenuHighlighted: {fileID: 1444019600}
+  audioMenuHighlighted: {fileID: 1511063069}
+  videoMenuHighlighted: {fileID: 1526309641}
+  controlMenuHighlighted: {fileID: 602107683}
   resetMenuHightlighted: {fileID: 0}
-  pauseMenuHighlighted: {fileID: 0}
-  audioMenuHighlighted: {fileID: 0}
-  videoMenuHighlighted: {fileID: 0}
-  controlMenuHighlighted: {fileID: 0}
   cheatMenuHighlighted: {fileID: 0}
   brightnessSlider: {fileID: 6170631978777376227}
   pauseAction: {fileID: 0}
   cheatAction: {fileID: 0}
+  Pause:
+    scenes: []
+  Gameplay:
+    scenes: []
+  Menu:
+    scenes: []
 --- !u!4 &774000093
 Transform:
   m_ObjectHideFlags: 0
@@ -6150,7 +6157,9 @@ MonoBehaviour:
   levelManager: {fileID: 487698529}
   level:
     scenes: []
-  menuManager: {fileID: 774000091}
+  levelFailed:
+    scenes: []
+  Player: {fileID: 0}
 --- !u!4 &1252628366
 Transform:
   m_ObjectHideFlags: 0
