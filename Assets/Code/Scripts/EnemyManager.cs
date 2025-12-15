@@ -60,6 +60,7 @@ public class EnemyManager : MonoBehaviour
     public int currentWave;
     private int spawnsDoneInCurrentWave = 0;
     private float nextSpawnTime = 0f;
+    private bool wave10MusicPlayed = false;
 
 
     void Start()
@@ -130,6 +131,7 @@ public class EnemyManager : MonoBehaviour
 
     void ReturnToMenu()
     {
+        AudioManager.Instance.PlayMainTheme();
         gameManager.LoadScene(level);
     }
 
@@ -153,6 +155,12 @@ public class EnemyManager : MonoBehaviour
     {
         spawnsDoneInCurrentWave = 0;
         nextSpawnTime = Time.time + spawnDelay;
+
+        if (waveNumber == 10 && !wave10MusicPlayed)
+        {
+            wave10MusicPlayed = true;
+            AudioManager.Instance.PlayWave10Music();
+        }
     }
 
     private void HandleWaveSpawning()
@@ -203,8 +211,6 @@ public class EnemyManager : MonoBehaviour
         spawnsDoneInCurrentWave++;
         nextSpawnTime = Time.time + spawnDelay;
     }
-
-    // PUBLIC METHOD FOR CHEAT MANAGER (F5 & F4 logic)
     public void ForceNextWave()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

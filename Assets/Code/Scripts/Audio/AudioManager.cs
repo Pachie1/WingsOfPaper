@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     [Header("Music")]
     [SerializeField] private AudioClip mainTheme;
     [SerializeField] private bool playMusicOnStart = true;
+    [SerializeField] private AudioClip wave10Theme;
 
     [Header("Audio Mixer")]
     [SerializeField] public AudioMixer mainMixer;
@@ -156,7 +157,14 @@ public class AudioManager : MonoBehaviour
         musicSource.pitch = 1f;
         musicSource.Play();
     }
-
+    public void PlayWave10Music()
+    {
+        PlayMusic(wave10Theme);
+    }
+    public void PlayMainTheme()
+    {
+        PlayMusic(mainTheme);
+    }
     public void PlayUISound(AudioClip clip)
     {
         if (clip == null || uiSource == null) return;
