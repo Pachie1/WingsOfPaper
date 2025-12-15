@@ -1,4 +1,3 @@
-using JetBrains.Rider.Unity.Editor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -14,7 +13,8 @@ public class PauseController : MonoBehaviour
     [SerializeField] private Level level;
 
     private GameManager gameManagerComp;
-    private bool pauseInput = false;
+    public bool pauseInput = false;
+    public bool cheatInput = false;
     void OnEnable()
     {
         if (cheatAction != null && cheatAction.action != null)
@@ -44,6 +44,7 @@ public class PauseController : MonoBehaviour
     private void HandleCheatAction(InputAction.CallbackContext context)
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        cheatInput = true;
         TriggerGameState(currentGameState);
 
     }
@@ -51,13 +52,13 @@ public class PauseController : MonoBehaviour
     private void HandlePauseInput(InputAction.CallbackContext context)
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        pauseInput = true;
         TriggerGameState(currentGameState);
     }
 
     public void ChangeGameState()
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
-        pauseInput = true;
         TriggerGameState(currentGameState);
     }
 

@@ -169,14 +169,40 @@ public class MenuManager : MonoBehaviour
     }
     private void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        pauseControllerComp = gameManager.GetComponent<PauseController>();
+        gameManagerComp = gameManager.GetComponent<GameManager>();
+
+
         if (mainMenu != null)
         {
             HighLightElement(mainMenuHighlighted); 
         }
         if (pauseMenu != null)
         {
-            pauseMenu.SetActive(true);
-            HighLightElement(pauseMenuHighlighted);
+            if (pauseControllerComp.pauseInput == true)
+            {
+                pauseMenu.SetActive(true);
+                if (pauseMenuHighlighted != null)
+                {
+                    HighLightElement(pauseMenuHighlighted);
+                }
+                pauseControllerComp.pauseInput = false;
+            }
+            
+            if(pauseControllerComp.cheatInput == true)
+            {
+                if (cheatMenu != null)
+                {
+                    cheatMenu.SetActive(true); 
+                }
+                pauseMenu.SetActive(false);
+                if (cheatMenuHighlighted != null)
+                {
+                    HighLightElement(cheatMenuHighlighted);
+                }
+                pauseControllerComp.cheatInput = false;
+            }
         }
         
         brightnessSlider.GetComponent<Slider>().value = light.intensity;
@@ -188,9 +214,18 @@ public class MenuManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
         {
-            pauseMenu.SetActive(false);
-            resetMenu.SetActive(true);
-            HighLightElement(resetMenuHightlighted);
+            if (pauseMenu != null)
+            {
+                pauseMenu.SetActive(false);
+            }
+            if (resetMenu != null)
+            {
+                resetMenu.SetActive(true);
+            }
+            if (resetMenuHightlighted != null)
+            {
+                HighLightElement(resetMenuHightlighted);
+            }
         }
     }
 
@@ -236,22 +271,16 @@ public class MenuManager : MonoBehaviour
 
     public void Unpause() 
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        pauseControllerComp = gameManager.GetComponent<PauseController>();
         pauseControllerComp.ChangeGameState();
     }
 
     public void ResetGameplay()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        gameManagerComp = gameManager.GetComponent<GameManager>();
         gameManagerComp.UnLoadSceneAndLoadScene(Pause, Gameplay);
     }
 
     public void BachToMenu()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        gameManagerComp = gameManager.GetComponent<GameManager>();
         gameManagerComp.LoadScene(Menu);
     }
 }

@@ -25,16 +25,23 @@ public class GameManager : MonoBehaviour
             LoadSceneAdditive(levelFailed);
             resetMenuLoad = true;
         }
-    }
+    } 
 
     public void LoadScene(Level level)
     {
-        levelManager.LoadLevel(level);
+        if (level.scenes.Length != 0)
+        {
+            levelManager.LoadLevel(level);
+        }
+        
     }
 
     public void LoadSceneAdditive(Level level) 
     {
-        StartCoroutine(levelManager.LoadLevelAdditive(level));
+        if (level.scenes.Length != 0)
+        {
+            StartCoroutine(levelManager.LoadLevelAdditive(level));
+        }
     }
 
     public void UnLoadScene(Level level)
