@@ -29,7 +29,7 @@ public class ResetButton : MonoBehaviour
 
     void ResumeScene()
     {
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false); 
     }
     void ResetScene()
     {
