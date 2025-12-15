@@ -7,6 +7,11 @@ public class PlayerShieldAbility : MonoBehaviour
     [Header("References")]
     [SerializeField] private Player player;
     [SerializeField] private InputActionReference shieldAction;
+    [SerializeField] private GameObject playerObj; 
+
+    [Header("Sprites")]
+    [SerializeField] private Sprite playerSprite;
+    [SerializeField] private Sprite playerShieldSprite;
 
     [Header("Shield Settings")]
     [SerializeField] private float invincibleSeconds = 1f;
@@ -18,6 +23,7 @@ public class PlayerShieldAbility : MonoBehaviour
     [SerializeField] private Sprite cooldownSprite;
     [SerializeField] private PlayerAudio playerAudio;
 
+    private Animator playerAnimator;
     private float cooldownRemaining;
     private float invincibleRemaining;
     private bool shieldActive;
@@ -54,9 +60,13 @@ public class PlayerShieldAbility : MonoBehaviour
 
         if (shieldActive)
         {
+            playerObj.GetComponent<Animator>().enabled= false;
+            playerObj.GetComponent<SpriteRenderer>().sprite = playerShieldSprite;
             invincibleRemaining -= Time.deltaTime;
             if (invincibleRemaining <= 0f)
             {
+                playerObj.GetComponent<Animator>().enabled = true;
+                playerObj.GetComponent<SpriteRenderer>().sprite = playerSprite;
                 invincibleRemaining = 0f;
                 shieldActive = false;
                 if (player != null) player.isInvincible = false;

@@ -4250,6 +4250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1427539065}
   shieldAction: {fileID: 3568749333010386537, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  playerObj: {fileID: 1427539060}
+  playerSprite: {fileID: 6691621495592777689, guid: 0a9961682a4920c4b9d5cf69e1f159ab, type: 3}
+  playerShieldSprite: {fileID: -3426757601138603780, guid: f5bf2d3abd2d4574f8ae7c9af78f7e50, type: 3}
   invincibleSeconds: 0.5
   cooldownSeconds: 12
   shieldIcon: {fileID: 1670646621}

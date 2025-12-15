@@ -45,6 +45,7 @@ public class PauseController : MonoBehaviour
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
         cheatInput = true;
+        pauseInput = false;
         TriggerGameState(currentGameState);
 
     }
@@ -52,6 +53,7 @@ public class PauseController : MonoBehaviour
     private void HandlePauseInput(InputAction.CallbackContext context)
     {
         GameState currentGameState = GameStateManager.Instance.CurrentGameState;
+        cheatInput = false;
         pauseInput = true;
         TriggerGameState(currentGameState);
     }
