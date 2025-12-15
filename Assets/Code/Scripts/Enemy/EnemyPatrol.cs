@@ -29,8 +29,6 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-
-    //Pause
     private void Awake()
     {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;

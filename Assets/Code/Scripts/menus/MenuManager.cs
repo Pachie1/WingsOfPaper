@@ -169,7 +169,6 @@ public class MenuManager : MonoBehaviour
         gameManagerComp.UnLoadScene(Gameplay);
         gameManagerComp.UnLoadScene(Pause);
         gameManagerComp.LoadScene(Gameplay);
-        //gameManagerComp.UnLoadSceneAndLoadScene(Pause, Gameplay);
     }
 
     public void BachToMenu()

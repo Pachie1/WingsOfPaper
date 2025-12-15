@@ -17,9 +17,6 @@ public class ResetButton : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Level level;
 
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         buttonResume.onClick.AddListener(ResumeScene);

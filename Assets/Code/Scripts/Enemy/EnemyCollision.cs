@@ -46,11 +46,9 @@ public class EnemyCollis : MonoBehaviour
     {
         animator.SetTrigger("Dead");
         
-        //Destroy(GetComponent<BoxCollider2D>());
     }
     private void OnDeadAnimation() 
     {
-        //Destroy(gameObject,0f);
         enemyPool.Release(this);
     }
 }

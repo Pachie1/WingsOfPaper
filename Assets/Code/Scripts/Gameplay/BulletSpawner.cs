@@ -20,13 +20,11 @@ public class BulletSpawner : MonoBehaviour
     private float timer = 0f;
     private Vector3 bulletRotation = new Vector3(0f,0f, 135f);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
@@ -60,8 +58,6 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-
-    //Pause
     private void Awake()
     {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;

@@ -27,8 +27,6 @@ public class BGScroll : MonoBehaviour
         }
     }
 
-
-    //Pause
     private void Awake() 
     {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;

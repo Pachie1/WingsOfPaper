@@ -10,14 +10,11 @@ public class Bullet : MonoBehaviour
     private Vector2 spawnPoint;
     private float timer = 0f;
 
-    
-
     void Start()
     {
         spawnPoint = new Vector2(transform.position.x, transform.position.y);
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
@@ -36,8 +33,6 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-    //Pause
     private void Awake()
     {
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;

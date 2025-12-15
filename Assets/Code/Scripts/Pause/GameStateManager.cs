@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    private static GameStateManager _instance; //-------------Check why does this HAVE to be static-------------
+    private static GameStateManager _instance;
 
-    public static GameStateManager Instance //-------------Check why does this HAVE to be static-------------
+    public static GameStateManager Instance
     {
         get
         {

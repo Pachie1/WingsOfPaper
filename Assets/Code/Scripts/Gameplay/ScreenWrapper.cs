@@ -9,7 +9,6 @@ public class ScreenWrapper : MonoBehaviour
     private float playerHeight;
     private float playerSize;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cameraHeight = Gcamera.orthographicSize * 2f;
@@ -19,7 +18,6 @@ public class ScreenWrapper : MonoBehaviour
         playerSize = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    // Update is called once per frame
     void Update()
     {   
         if (transform.position.x <= Gcamera.transform.position.x - cameraWidth/2 - playerWidth/2)
